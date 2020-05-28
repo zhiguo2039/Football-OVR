@@ -1,0 +1,3 @@
+ update [OVR_DatabaseFBL].[dbo].[Dict_CountryRegion]
+  set CRCode='{CRCode}',CRName='{CRName}',CRLocalName='{CRLocalName}',CRFullName='{CRFullName}',CRLocalFullName='{CRLocalFullName}'
+  where ID={ID}

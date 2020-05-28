@@ -1,0 +1,1 @@
+delete Game_news where id={ID}

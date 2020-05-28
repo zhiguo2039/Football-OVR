@@ -1,0 +1,7 @@
+SELECT *
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Athlete]
+  WHERE [OVR_DatabaseFBL].[dbo].[Game_Athlete].DelegationID={ID} 
+  AND [OVR_DatabaseFBL].[dbo].[Game_Athlete].AthleteGender=(
+   SELECT EventGender FROM [OVR_DatabaseFBL].[dbo].[Game_Event] WHERE ID ={EventID}
+  )
+  

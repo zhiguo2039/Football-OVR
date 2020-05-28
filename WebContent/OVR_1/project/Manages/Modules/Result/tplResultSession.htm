@@ -1,0 +1,81 @@
+﻿
+
+            <div class="ibox-content">
+                <div class="table-responsive" >
+                    <table id="table" style="width:1520px;text-align:center" class="footable table table-stripped toggle-arrow-tiny">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>状态</th>
+                                <th>秩序单</th>
+                                <th>成绩录入</th>                               
+                                <th>场馆编号</th>
+                                <th>比赛编号</th>
+                                <th>比赛名称</th>
+                                <th>比赛序号</th>
+                                <th>开始时间</th>
+                                <th>对阵信息</th>
+                                <th>总比分</th>
+                                <th>上半场比分</th>
+                                <th>下半场比分</th>
+                                <th>加时赛上半场比分</th>
+                                <th>加时赛下半场比分</th>
+                                <th>点球比分</th>                               
+                                <th>获胜</th>
+                                <th>成绩状态</th>
+                                <th>成绩操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                            for(var i=0;i<tplData.length;i++) { var aItem=tplData[i];
+                     %>
+                            <tr>
+                                <td><input type="checkbox" class="i-checks" name="input[]"></td>
+                                <td class="center" >
+                                    <span class="label label-primary" id="statusClass-<%=i%>"><%=aItem.MatchScheduleStatus%></span>
+                                </td>
+                                <td class="center">
+                                    <a onclick="Result.LoadCheckPlayer(<%=i%>);">秩序单</a>
+                                </td>                               
+                                <td class="center">
+                                    <a  onclick="Result.EntryScoreEdit(<%=i%>);">成绩录入</a>
+                                </td>                                                           
+                                <td><%=aItem.VenueCode%></td>
+                                <td><%=aItem.MatchCode%></td>
+                                <td><%=aItem.MatchLocalName%></td>
+                                <td><%=aItem.MatchOrder%></td>
+                                <td><i class="fa fa-clock-o"></i><%=aItem.BeginTime%></td>
+                                <td><%=aItem.ParticipantLocalNameA%>-<%=aItem.ParticipantLocalNameB%></td>
+                                <td><%=aItem.ScoreA%>-<%=aItem.ScoreB%></td> 
+                                <td><%=aItem.sectionscorea1%>-<%=aItem.sectionscoreb1%></td>
+                                <td><%=aItem.sectionscorea2%>-<%=aItem.sectionscoreb2%></td>
+                                <td><%=aItem.sectionscorea3%>-<%=aItem.sectionscoreb3%></td>
+                                <td><%=aItem.sectionscorea4%>-<%=aItem.sectionscoreb4%></td>    
+                                <td><%=aItem.sectionscorea5%>-<%=aItem.sectionscoreb5%></td>      
+                                <%if(aItem.WinStatusA==1){%>
+                                <td><%=aItem.ParticipantLocalNameA%></td>
+                                <%}else if(aItem.WinStatusB==1){%>
+                                <td><%=aItem.ParticipantLocalNameB%></td>
+                                <%}else{%>
+                                <td>    </td>
+                                <%}%>                                                
+                                <td><%=aItem.MatchResultStatus%></td>
+                                <td class="center">
+                                    <a onclick="Result.ResultStatusOfficial(<%=i%>);">官方</a>|<a onclick="Result.ResultStatusUnOfficial(<%=i%>)">非官方</a>
+                                </td>
+                            </tr>
+                            <%
+                            }%>
+
+
+                        </tbody>
+
+
+                    </table>
+
+                </div>
+
+
+            </div>
+

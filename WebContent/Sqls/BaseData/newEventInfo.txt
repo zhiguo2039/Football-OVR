@@ -1,0 +1,22 @@
+INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_Event]( 
+	[EventCode]
+      ,[EventName]
+      ,[EventLocalName]
+      ,[EventLongName]
+      ,[EventLocalLongName]
+      ,[EventOrder]
+      ,[EventTeam]
+      ,[EventDescription]
+      ,[EventGender]
+
+) 
+VALUES (
+'{EventCode}', 
+'{EventName}', 
+'{EventLocalName}',
+'{EventLongName}',
+'{EventLocalLongName}', 
+'{EventOrder}',
+'{EventTeam}', 
+'{EventDescription}',
+'{EventGender}')

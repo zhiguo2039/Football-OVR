@@ -1,0 +1,158 @@
+﻿
+
+                <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>比赛项目</h5>
+                        <div class="ibox-tools">
+							<button type="button" class="btn btn-outline btn-default" onclick="BaseData.EventInfoNew()">
+								<i class="fa fa-plus"></i><font color="black"> 新增数据</font>
+							</button>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                    <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover dataTables-example" >
+                    <thead>
+                    <tr>
+                        <th>操作</th>
+                        <th>项目代码</th>
+                        <th>项目名称</th>
+                        <th>项目中文名</th>
+                        <th>项目全名称</th>
+                        <th>项目中文全名</th>
+                        <th>项目序号</th>
+                        <th>项目团体</th>
+                        <th>项目描述</th>
+                        <th>项目性别</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <%
+                        for( var i=0;i<tplData.length;i++) {
+                           var aItem=tplData[i];
+                                             %>
+                    <tr class="gradeA">
+                        <td class="center"><a onclick="BaseData.EventInfoEdit(<%= i%>)">修改</a>|<a onclick="BaseData.deleteEventInfo(<%= i%>)">删除</a></td>   
+                        <td class="center"><%=aItem.EventCode %></td>
+						<td class="center"><%=aItem.EventName %></td>
+						<td class="center"><%=aItem.EventLocalName %></td>
+                        <td class="center"><%=aItem.EventLongName %></td>
+						<td class="center"><%=aItem.EventLocalLongName %></td>
+                        <td class="center"><%=aItem.EventOrder%></td>
+						<td class="center"><%=aItem.EventTeam %></td>
+                        <td class="center"><%=aItem.EventDescription%></td>
+                        <td class="center"><%=aItem.EventGender%></td>        
+                
+					</tr>
+					 <%
+                            }
+                            %>
+         
+                    </tbody>
+
+                    </table>
+
+					</div>
+                    </div>
+                    </div>
+					
+                </div>
+            </div>
+			
+			<div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    添加比赛项目信息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form method="get" class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">赛事代码</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" name="EventCode" value="" id="EventCode">
+                        </div>
+                        <label class="col-sm-2 control-label">赛事名称</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" name="EventName" value="" id="EventName">
+                        </div>
+
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">赛事中文名称</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" name="EventLocalName" value="" id="EventLocalName">
+                        </div>
+                        <label class="col-sm-2 control-label">赛事序号</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" name="EventOrder" value="" id="EventOrder">
+                        </div>
+
+                    </div>		、
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">赛事全名</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" name="EventLongName" value="" id="EventLongName">
+                        </div>
+                        <label class="col-sm-2 control-label">赛事中文全名</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" name="EventLocalLongName" value="" id="EventLocalLongName">
+                        </div>
+
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">赛事团体</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" name="EventTeam" value="" id="EventTeam">
+                        </div>
+                        <label class="col-sm-2 control-label">赛事描述</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="text" name="EventDescription" value="" id="EventDescription">
+                        </div>
+
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+
+
+                        <label class="col-sm-2 control-label">赛事性别</label>
+
+                        <div class="col-sm-4">
+                            <select class="form-control m-b" name="EventGender" id="EventGender">
+                                <option>M</option>
+                                <option>W</option>
+                                <option>X</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="BaseData.doEventInfoPost();">保存更改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+     

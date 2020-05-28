@@ -1,0 +1,63 @@
+
+	declare @i int
+	declare @TotalStartOrder int
+    declare @PhaseCode varchar(50)
+	declare @scode varchar(50)
+	declare @eventcode varchar(50)
+	declare @EventDescription nvarchar(200)
+	declare @EventGender varchar(10)
+	DECLARE @PhaseID int
+	select @PhaseID=PhaseID From [OVR_DatabaseFBL].[dbo].[Game_Group] where ID={GroupID}
+	
+	select @EventDescription=EventDescription from Game_Event where ID =(select EventID from Game_Phase where ID=@PhaseID)
+	select @EventGender=EventGender from Game_Event where ID =(select EventID from Game_Phase where ID=@PhaseID)
+	select @PhaseCode=PhaseCode from Game_Phase where ID=@PhaseID
+	select @eventcode=EventCode from Game_Event  where ID =(select EventID from Game_Phase where ID=@PhaseID)
+
+
+set @i=1
+set @TotalStartOrder=1
+while @i<={GroupMatch}
+begin
+
+	if({GroupMatch}<10)
+     set @scode='000'+cast(@i as varchar)
+     else if({GroupMatch}>10 and {GroupMatch}<100)
+     set @scode='00'+cast(@i as varchar)
+     else if({GroupMatch}>100 and {GroupMatch}<1000)
+     set @scode='0'+cast(@i as varchar)
+     else 
+     set @scode=cast(@i as varchar)
+
+     INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_Match]( 
+	[MatchCode]
+      ,[MatchName]
+      ,[MatchLocalName]
+      ,[PhaseID]
+	  ,[GroupID]
+	,[MatchOrder]
+	,[TotalOrder] 
+	,[UploadMatchCode]
+) 
+VALUES (
+(
+(select EventCode from Game_Event  where ID =(select EventID from Game_Phase where ID=(select PhaseID From [OVR_DatabaseFBL].[dbo].[Game_Group] where ID={GroupID})) 
+)
++
+(
+select PhaseCode from [OVR_DatabaseFBL].[dbo].[Game_Phase] where ID=(select PhaseID From [OVR_DatabaseFBL].[dbo].[Game_Group] where ID={GroupID} )
+)
+)
++'000'+cast(@i as varchar)+'00--', 
+(select PhaseName from [OVR_DatabaseFBL].[dbo].[Game_Phase] where ID=(select PhaseID From [OVR_DatabaseFBL].[dbo].[Game_Group] where ID={GroupID} )), 
+(select PhaseLocalName from [OVR_DatabaseFBL].[dbo].[Game_Phase] where ID=(select PhaseID From [OVR_DatabaseFBL].[dbo].[Game_Group] where ID={GroupID} ))+'第'+cast(@i as varchar)+'场', 
+(select PhaseID From [OVR_DatabaseFBL].[dbo].[Game_Group] where ID={GroupID} ),
+{GroupID},
+cast(@i as varchar),
+@TotalStartOrder,
+@eventcode+@EventDescription+@PhaseCode+@scode+'00--'
+)
+set @i=@i+1
+set @TotalStartOrder=@TotalStartOrder+1
+continue
+end

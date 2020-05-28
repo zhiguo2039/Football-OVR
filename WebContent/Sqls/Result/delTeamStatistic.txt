@@ -1,0 +1,2 @@
+delete from Game_GroupParticipant where ParticipantID={ParticipantID}
+delete from Game_Participant where ID={ParticipantID}

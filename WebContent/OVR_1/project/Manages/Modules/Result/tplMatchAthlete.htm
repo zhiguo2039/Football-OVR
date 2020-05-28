@@ -1,0 +1,34 @@
+<table id="Athlete" class="table table-striped table-bordered table-hover dataTables-example ">
+    <thead>
+	<tr>
+		<th><input id="allselectcheckbox" class="pull-left" name="allselectcheckbox" type="checkbox" value="" onchange="Result.allselect();"/>选择</th>
+        
+        <th style="width:180px;">球服号</th>
+        <th>运动员姓名</th>
+        <th>运动员中文名</th>
+        <th>场上位置</th>
+																
+	</tr>
+    </thead>
+    <tbody>
+    <%
+                                                               
+    for( var i=0;i<tplData.length;i++) { var aItem=tplData[i];
+                     %>
+    <tr>
+        <td>
+            <input id="checkbox" class="pull-left" name="PlayerBox" type="checkbox" value="<%=i%>" />
+        </td>
+        <td><%=aItem.AthleteShirtNumber%></td>
+        <td><%=aItem.AthleteName%></td>
+        <td><%=aItem.AthleteLocalName%></td>
+        <td><%=aItem.MemberPosition%></td>
+
+    </tr>
+    <%
+
+    }
+    %>
+</tbody>
+
+</table>

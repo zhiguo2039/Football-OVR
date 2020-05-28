@@ -1,0 +1,3 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Competition] 
+  set Name='{Name}',LocalName='{LocalName}',ShortName='{ShortName}',LocalShortName='{LocalShortName}',OpenDate='{OpenDate}',CloseDate='{CloseDate}'
+  where ID={ID}

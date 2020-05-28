@@ -1,0 +1,2 @@
+Select SectionOrder,EndTime FROM [OVR_DatabaseFBL].[dbo].[Game_MatchSection] 
+  Where StartTime=(Select MAX(StartTime)  FROM [OVR_DatabaseFBL].[dbo].[Game_MatchSection] where MatchID={MatchID}) 

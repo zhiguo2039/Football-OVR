@@ -1,0 +1,3 @@
+Delete from [OVR_DatabaseFBL].[dbo].[Game_Match] where PhaseID={ID}
+delete from [dbo].[Game_Group] where PhaseID={ID}
+Delete from [OVR_DatabaseFBL].[dbo].[Game_Phase] where ID={ID}

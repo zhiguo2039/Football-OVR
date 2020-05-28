@@ -1,0 +1,1 @@
+select * from Game_Official,Game_MatchOfficial where Game_Official.ID=Game_MatchOfficial.OfficialID AND MatchID={MatchID}

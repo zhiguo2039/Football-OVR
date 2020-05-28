@@ -1,0 +1,3 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Event]
+  set EventCode='{EventCode}',EventName='{EventName}',EventLocalName='{EventLocalName}',EventOrder='{EventOrder}',EventLongName='{EventLongName}',EventLocalLongName='{EventLocalLongName}',EventTeam='{EventTeam}',EventDescription='{EventDescription}',EventGender='{EventGender}'
+  where ID={ID}

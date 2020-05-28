@@ -1,0 +1,26 @@
+﻿
+
+
+<table class="table table-striped table-bordered table-hover dataTables-example">
+    <thead>
+        <tr>
+            <th>选择</th>
+            <th>编号</th>
+            <th>名称</th>
+            <th>开始时间</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%for(var i=0;i<tplData.length;i++){
+                var aItem=tplData[i];                             
+                                %>
+        <tr class="gradeA">
+            <td><input type="checkbox" class="i-checks" name="input[]"></td>
+            <td><%=aItem.MatchCode%></td>
+            <td class="center"><%=aItem.PhaseName%><%=aItem.MatchName%></td>
+            <td class="center"><%=aItem.BeginTime%></td>
+        </tr>
+        <%}%>
+
+    </tbody>
+</table>

@@ -1,0 +1,2 @@
+  
+select a.*,pm.ParticipantID ,pm.MemberOrder from Game_ParticipantMember pm, Game_Athlete a where pm.AthleteID=a.ID and a.AthleteModifyTag<>'D' and ParticipantID={ParticipantID} order by MemberOrder

@@ -1,0 +1,5 @@
+SELECT *
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Athlete],[OVR_DatabaseFBL].[dbo].[Game_Delegation],[OVR_DatabaseFBL].[dbo].[Dict_CountryRegion]
+  WHERE [OVR_DatabaseFBL].[dbo].[Game_Athlete].DelegationID=[OVR_DatabaseFBL].[dbo].[Game_Delegation].ID 
+  AND [OVR_DatabaseFBL].[dbo].[Game_Athlete].ContryRegionCode=[OVR_DatabaseFBL].[dbo].[Dict_CountryRegion].CRCode
+  AND [OVR_DatabaseFBL].[dbo].[Game_Athlete].AthleteModifyTag<>'D'

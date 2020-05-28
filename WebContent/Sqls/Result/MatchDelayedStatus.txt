@@ -1,0 +1,2 @@
+update Game_Match set MatchScheduleStatus='DELAYED',MatchModifyTag='U' where ID in ({ID})
+

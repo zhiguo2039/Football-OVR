@@ -1,0 +1,1 @@
+exec [dbo].[Proc_SetModelPhase_GroupPhase] {EventID},{GroupNum},{Count},{GroupMacth}

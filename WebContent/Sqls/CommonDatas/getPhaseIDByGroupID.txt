@@ -1,0 +1,2 @@
+  select EventGender,PhaseCode from  [OVR_DatabaseFBL].[dbo].[Game_Event] b,[OVR_DatabaseFBL].[dbo].[Game_Phase] c
+c.EventID=b.ID and c.ID={PhaseID}

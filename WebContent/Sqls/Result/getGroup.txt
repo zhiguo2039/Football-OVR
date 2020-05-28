@@ -1,0 +1,1 @@
+select Game_Group.*,Game_Phase.*,Game_Event.* from Game_Group,Game_Phase,Game_Event where Game_Group.PhaseID=Game_Phase.ID AND Game_Phase.EventID=Game_Event.ID

@@ -1,0 +1,15 @@
+
+  INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_ParticipantMember]( 
+	[ParticipantID]
+      ,[AthleteID]
+      ,[MemberOrder]
+      ,[MemberProperty]
+      ,[MemberPosition]
+) 
+VALUES (
+(SElECT ID FROM [OVR_DatabaseFBL].[dbo].[Game_Participant] WHERE ParticipantCode='{ParticipantCode}' ), 
+{AthleteID},
+'',
+'',
+''
+)

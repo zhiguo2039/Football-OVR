@@ -1,0 +1,64 @@
+﻿<div class="row">
+    <div class="col-lg-8">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>竞赛计划</h5>
+                <br />
+                <br />
+                <div class="col-sm-3" id="" style="position:relative;right:0px;bottom:6px">
+                    <select class="input-sm form-control input-s-sm inline" id="GDF" onchange="">
+                        <option value="DT_SCHEDULE">DT_SCHEDULE</option>
+                        <option value="DT_SCHEDULE_UPDATE">DT_SCHEDULE_UPDATE</option>
+                        <option value="DT_PARTIC">DT_PARTIC</option>
+                        <option value="DT_PARTIC_UPDATE">DT_PARTIC_UPDATE</option>
+                        <option value="DT_PARTIC_TEAMS">DT_PARTIC_TEAMS</option>
+                        <option value="DT_PARTIC_TEAMS_UPDATE">DT_PARTIC_TEAMS_UPDATE</option>
+                    </select>
+
+                </div>
+                <div class="col-sm-2" id="" style="position:relative;right:0px;bottom:6px">
+                    <button class="btn btn-sm " onclick="ODF.GetGDF();"><i class="fa fa-files-o"></i>上传XML</button>                    
+                </div>
+
+               
+                <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC08();"><i class="fa fa-files-o"></i>C08报表</button>
+                <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC58();"><i class="fa fa-files-o"></i>C58报表</button>
+
+                <button class="btn btn-outline btn-primary col-sm-offset-1" onclick="CommonData.ShowPDFVersion('C08');"><i class="fa fa-files-o"></i>修订C08报表</button>
+                <button class="btn btn-outline btn-primary col-sm-offset-0" onclick="CommonData.ShowPDFVersion('C58');"><i class="fa fa-files-o"></i>修订C58报表</button>
+            </div>
+            <div class="ibox-content" style="overflow:scroll;height:500px;width:100%;">
+                <div class="row">
+                    <label class="col-sm-2 control-label">比赛项目</label>
+                    <div class="col-sm-4" style="position:relative;right:60px;bottom:6px" id="Event">
+
+                    </div>
+                    <label class="col-sm-2 control-label">轮次</label>
+                    <div class="col-sm-4" style="position:relative;right:80px;bottom:6px" id="Phase">
+
+                    </div>
+                </div>
+
+
+                <div class="dd" id="nestable" onchange="Shedule.PostMatchAth()">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>对阵</h5>
+                <button class="btn btn-sm pull-right " onclick="Shedule.Update_Match_Brackets();"><i class=""></i>自动对阵</button>
+            </div>
+            <div class="ibox-content">
+                <div class="dd" id="nestable1" onchange="Shedule.ShowAthleteList();">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

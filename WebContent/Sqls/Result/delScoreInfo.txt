@@ -1,0 +1,5 @@
+update Game_Match set ScoreA='',ScoreB='',WinType='1',WinStatusA='0',WinStatusB='0' where ID={MatchID}
+update Game_MatchSection set ScoreA='',ScoreB='' where MatchID={MatchID} and SectionOrder=1
+update Game_MatchSection set ScoreA='',ScoreB='' where MatchID={MatchID} and SectionOrder=2
+update Game_MatchSection set ScoreA='',ScoreB='' where MatchID={MatchID} and SectionOrder=3
+update Game_MatchSection set ScoreA='',ScoreB='' where MatchID={MatchID} and SectionOrder=4

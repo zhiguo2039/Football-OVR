@@ -1,0 +1,1 @@
+update Game_GroupParticipant set MatchsPlayed='{MatchsPlayed}',WonNumber='{WonNumber}',DrawnNumber='{DrawnNumber}',LostNumber='{LostNumber}',GoalFor='{GoalFor}',GoalAgainst='{GoalAgainst}',GoalDifference='{GoalDifference}',GroupPoints='{GroupPoints}',GroupRank='{GroupRank}' where ID={ID}

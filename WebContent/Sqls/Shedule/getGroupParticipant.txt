@@ -1,0 +1,11 @@
+     SELECT tmp1.ID,tmp1.ParticipantID,tmp1.ParticipantName,c.GroupName,tmp1.GroupDrawNo
+
+ FROM
+  (SELECT  a.ID,tmp.ParticipantID, tmp.ParticipantName,a.GroupID,a.GroupDrawNo FROm
+ (SELECT b.ID as ParticipantID, b.ParticipantName
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Participant] b where b.EventID={EventID}) as tmp left join [OVR_DatabaseFBL].[dbo].[Game_GroupParticipant] a      
+  ON  a.ParticipantID=tmp.ParticipantID) as tmp1 left join [OVR_DatabaseFBL].[dbo].[Game_Group] c
+  ON tmp1.GroupID=c.ID
+  
+  
+ order by tmp1.GroupID

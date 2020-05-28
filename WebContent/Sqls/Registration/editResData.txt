@@ -1,0 +1,8 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Participant]
+  
+  set  
+  ParticipantCode='{ParticipantCode}'
+  ,ParticipantName='{ParticipantName}'
+  ,ParticipantSeedNo='{ParticipantSeedNo}'
+  ,ParticipantDrawNo='{ParticipantDrawNo}'
+  where ID={ID}

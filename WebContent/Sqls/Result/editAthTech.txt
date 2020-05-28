@@ -1,0 +1,1 @@
+update Game_SingleTech set TechCode='{TechCode}',BeginTime='{BeginTime}',TimePoint={TimePoint},Memo='{Memo}' where ID={ID}

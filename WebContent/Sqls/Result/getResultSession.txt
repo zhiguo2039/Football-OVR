@@ -1,0 +1,22 @@
+select ts.*,Game_phase.* from (select ts.*,Dict_ScheduleStatus.ScheduleStatusLocalName 
+from(select ID,UploadMatchCode,MatchCode,MatchName,DelegationID,MatchLocalName,PhaseID,GroupID,SessionID,VenueCode,LocationCode,MatchScheduleStatus,MatchResultStatus,PhaseOrder,MatchOrder,TotalOrder,LEFT(CONVERT(varchar(100),BeginTime, 20),16) as BeginTime,EndTime,ParticipantAID,ParticipantBID,ScoreA,ScoreB,WinStatusA,WinStatusB,WinType,QualitativeA,QualitativeB,MatchResult,MatchTime,MatchModifyTag,ParticipantNameA,ParticipantLocalNameA,ParticipantNameB,ParticipantLocalNameB,ControlTimeA,ControlTimeB,
+sum(case when SectionOrder=1 then SectionScoreA else 0 end)  sectionscorea1,
+sum(case when SectionOrder=2 then SectionScoreA else 0 end)  sectionscorea2,
+sum(case when SectionOrder=3 then SectionScoreA else 0 end)  sectionscorea3,
+sum(case when SectionOrder=4 then SectionScoreA else 0 end)  sectionscorea4,
+sum(case when SectionOrder=5 then SectionScoreA else 0 end)  sectionscorea5,
+sum(case when SectionOrder=1 then SectionScoreB else 0 end)  sectionscoreb1,
+sum(case when SectionOrder=2 then SectionScoreB else 0 end)  sectionscoreb2,
+sum(case when SectionOrder=3 then SectionScoreB else 0 end)  sectionscoreb3,
+sum(case when SectionOrder=4 then SectionScoreB else 0 end)  sectionscoreb4,
+sum(case when SectionOrder=5 then SectionScoreB else 0 end)  sectionscoreb5
+from (select ts.*,Game_MatchSection.ScoreA as SectionScoreA,Game_MatchSection.ScoreB as SectionScoreB,Game_MatchSection.ID as SectionID,Game_MatchSection.SectionTime,Game_MatchSection.SectionOrder,Game_MatchSection.StartTime
+from (select ts.*,Game_Participant.DelegationID,Game_Participant.ParticipantName as ParticipantNameB,Game_Participant.ParticipantLocalName as ParticipantLocalNameB  
+from (Select Game_Match.*,Game_Participant.ParticipantName as ParticipantNameA,Game_Participant.ParticipantLocalName as ParticipantLocalNameA from Game_Match left join  Game_Participant  on Game_Match.ParticipantAID=Game_Participant.ID
+where  Game_Match.PhaseID={PhaseID}  )ts left join Game_Participant on Game_Participant.ID=ts.ParticipantBID)ts left join Game_MatchSection on ts.ID=Game_MatchSection.MatchID )ts
+group by ID,UploadMatchCode,MatchCode,MatchName,MatchLocalName,PhaseID,DelegationID,GroupID,SessionID,VenueCode,LocationCode,MatchScheduleStatus,MatchResultStatus,PhaseOrder,MatchOrder,TotalOrder,BeginTime,EndTime,ParticipantAID,ParticipantBID,ScoreA,ScoreB,WinStatusA,WinStatusB,WinType,QualitativeA,QualitativeB,MatchResult,MatchTime,MatchModifyTag,ParticipantNameA,ParticipantLocalNameA,ParticipantNameB,ParticipantLocalNameB,ControlTimeA,ControlTimeB
+)ts left join Dict_ScheduleStatus on ts.MatchScheduleStatus=Dict_ScheduleStatus.ScheduleStatusCode  
+)ts left join Game_Phase on ts.PhaseID=Game_Phase.ID 
+order by UploadMatchCode,MatchOrder
+
+

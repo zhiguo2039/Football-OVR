@@ -1,0 +1,13 @@
+
+<select data-placeholder="Choose a Schedule..." class="chosen-select" tabindex="2" id="ScheduleCode">
+
+    <%
+    for(var i =0;i<tplData.length;i++){ var aItem=tplData[i];
+                          %>
+
+        <option value="<%= aItem.ID%>"><%= aItem.ScheduleStatusName%>--<%= aItem.ScheduleStatusLocalName%></option>
+        <%}%>
+</select>
+
+
+

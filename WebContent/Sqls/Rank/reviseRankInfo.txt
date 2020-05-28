@@ -1,0 +1,3 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Rank] 
+  set Rank='{Rank}',RankDate='{RankDate}',RankStatus='{RankStatus}',RankDescription='{RankDescription}'
+  where ID={ID}

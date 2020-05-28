@@ -1,0 +1,8 @@
+  
+  SELECT a.ID,
+MatchCode,
+PhaseName,
+MatchName,
+BeginTime
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Match] a,[OVR_DatabaseFBL].[dbo].[Game_Phase] b
+  WHERE a.PhaseID=b.ID AND a.PhaseID={PhaseID} AND SessionID is null

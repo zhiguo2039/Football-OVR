@@ -1,0 +1,20 @@
+insert into Game_News
+(		[NewsTime]
+      ,[NewsTitle]
+      ,[NewsSummary]
+      ,[NewsPublisher]
+      ,[Status]
+      ,[NewsDetails]
+      ,[EventGender]
+      ,[NewsSubTitle]
+      )
+      values(
+      '{newstime}',
+      '{newstitle}',
+      '{newssummary}',
+      '{newsPublisher}',
+      '{newsstatus}',
+      '{newsinfo}',
+      '{newsEvent}',
+      '{newssubtitle}'
+      )

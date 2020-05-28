@@ -1,0 +1,32 @@
+﻿
+
+<!--<div class="ibox-content">-->
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover dataTables-example">
+        <thead>
+            <tr>
+                <th></th>
+                <th>代码</th>
+                <th>场地</th>
+                <th>场地</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <%for(var i=0;i<tplData.length;i++){
+                var aItem=tplData[i];                                    
+             %>
+            <tr class="gradeA">
+                <td><input type="radio" class="i-checks" name="Venue[]"></td>
+                <td class="center"><%=aItem.VenueCode %></td>
+                <td class="center"><%=aItem.VenueName %></td>
+                <td class="center"><%=aItem.VenueLocalName %></td>
+            </tr>
+
+            <%}%>
+        </tbody>
+
+    </table>
+
+</div>
+<!--</div>-->

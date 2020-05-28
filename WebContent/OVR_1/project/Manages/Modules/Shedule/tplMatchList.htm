@@ -1,0 +1,26 @@
+﻿
+
+
+<ol class="dd-list">
+
+    <%for(var i = 0;i<tplDataA.length;i++){ var aItemA=tplDataA[i];
+                          %>
+                         <li class="dd-item" data-matchid="<%=aItemA.ID%>">
+
+                             <div class="dd-handle"><%= aItemA.MatchName%>--<%= aItemA.MatchLocalName%></div>
+                             <%if((aItemA.ParticipantAID!="")&&(aItemA.ParticipantBID!="")){%>
+                                 <ol class="dd-list">
+                                     <%for(var j=0;j<tplDataB.length;j++){
+                                            var aItemB=tplDataB[j];
+                                     if(aItemA.ParticipantAID==aItemB.ID||aItemA.ParticipantBID ==aItemB.ID){
+                                      %>
+                                         <li class="dd-item" data-participantid="<%=aItemB.ID%>">
+                                             <div class="dd-handle"><%= aItemB.DelegationCode%>---<%= aItemB.ParticipantLocalName%></div>
+                                         </li>
+                                         <%}}%>
+                                 </ol>
+                             <%}%>
+
+                         </li>
+        <%}%>
+</ol>

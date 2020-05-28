@@ -1,0 +1,6 @@
+SELECT *
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Group] a, 
+  [OVR_DatabaseFBL].[dbo].[Game_Event] b,
+  [OVR_DatabaseFBL].[dbo].[Game_Phase] c
+  
+  Where  c.EventID={EventID} AND b.ID={EventID} AND a.PhaseID=c.ID

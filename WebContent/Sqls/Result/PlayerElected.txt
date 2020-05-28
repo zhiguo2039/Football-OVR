@@ -1,0 +1,1 @@
+update Game_MatchAthlete set Property='OnSpot'   where ID in ({ID})

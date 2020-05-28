@@ -1,0 +1,3 @@
+SELECT a.*,b.EventCode,b.EventName,b.EventLocalName,c.DelegationName
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Participant] a,[OVR_DatabaseFBL].[dbo].[Game_Event] b,[OVR_DatabaseFBL].[dbo].[Game_Delegation] c
+  WHERE a.EventID=b.ID and EventID={EventID} AND C.ID=A.DelegationID

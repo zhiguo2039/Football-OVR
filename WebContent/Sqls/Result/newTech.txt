@@ -1,0 +1,38 @@
+INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_SingleTech]( 
+ParticipantID,
+       [MatchID],
+	   [MatchSectionOrder],
+	   [AthleteID]
+      ,[TechCode]
+      ,[BeginTime]
+      ,TimePoint
+      ,[Memo]
+      ,CurrentScoreA
+      ,CurrentScoreB
+
+) 
+VALUES (
+{ParticipantID},
+{MatchID},
+{MatchSectionOrder},
+{AthleteID}, 
+'{TechCode}', 
+(Select CONVERT(varchar,GETDATE(),108)),
+(
+select 
+(case (select COUNT(ID) from Game_MatchSection where MatchID={MatchID} and StartTime IS not null) 
+when 0 then 0 
+when 1 then Datediff(mi,(select StartTime from Game_MatchSection where MatchID={MatchID} and SectionOrder=1),CONVERT(varchar(8),GetDate(),108))
+when 2 then Datediff(mi,(select StartTime from Game_MatchSection where MatchID={MatchID} and SectionOrder=2),CONVERT(varchar(8),GetDate(),108))+45
+when 3 then Datediff(mi,(select StartTime from Game_MatchSection where MatchID={MatchID} and SectionOrder=3),CONVERT(varchar(8),GetDate(),108))+90
+when 4 then Datediff(mi,(select StartTime from Game_MatchSection where MatchID={MatchID} and SectionOrder=4),CONVERT(varchar(8),GetDate(),108))+105
+when 5 then Datediff(mi,(select StartTime from Game_MatchSection where MatchID={MatchID} and SectionOrder=5),CONVERT(varchar(8),GetDate(),108))+120
+end)
+)
+,''
+,{CurrentScoreA}
+,{CurrentScoreB}
+)
+
+
+

@@ -1,0 +1,2 @@
+SELECT *
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Competition]

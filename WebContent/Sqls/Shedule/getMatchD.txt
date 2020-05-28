@@ -1,0 +1,10 @@
+SELECT EventID,PhaseID,EventName,PhaseName,MatchCode,MatchName,MatchLocalName,GroupID,VenueCode,LocationCode,MatchOrder,
+
+      CONVERT(varchar,[BeginTime],111) as [BeginTime]
+      ,CONVERT(varchar,[EndTime],111) as [EndTime]
+	  ,CONVERT(varchar,[BeginTime],108) as [begintime1]
+      ,CONVERT(varchar,[EndTime],108) as [endtime1]
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Match],[OVR_DatabaseFBL].[dbo].[Game_Phase],[OVR_DatabaseFBL].[dbo].[Game_Event]
+  WHERE [OVR_DatabaseFBL].[dbo].[Game_Match].ID={ID}
+  AND [OVR_DatabaseFBL].[dbo].[Game_Match].PhaseID=[OVR_DatabaseFBL].[dbo].[Game_Phase].ID 
+  AND  [OVR_DatabaseFBL].[dbo].[Game_Phase].EventID=[OVR_DatabaseFBL].[dbo].[Game_Event].ID

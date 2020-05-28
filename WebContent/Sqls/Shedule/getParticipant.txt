@@ -1,0 +1,2 @@
+SELECT a.ID,ParticipantName,ParticipantLocalName,DelegationCode
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Participant] a,Game_Delegation b where a.DelegationID=b.ID

@@ -1,0 +1,13 @@
+INSERT INTO [OVR_DatabaseFBL].[dbo].[Dict_Venue]( 
+	[VenueCode]
+      ,[VenueName]
+      ,[VenueLocalName]
+      ,[VenueLongName]
+      ,[VenueLocalLongName]
+) 
+VALUES (
+'{VenueCode}'
+      ,'{VenueName}'
+      ,'{VenueLocalName}'
+      ,'{VenueLongName}'
+      ,'{sVenueLocalLongName}')

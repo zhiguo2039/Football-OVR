@@ -1,0 +1,1 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Athlete] set AthleteShirtNumber={AthleteShirtNumber},AthleteModifyTag='U' where ID={AthleteID}

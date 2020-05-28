@@ -1,0 +1,122 @@
+﻿<div class="ibox ">
+    <div class="ibox-title">
+        <h5>增加轮次</h5>
+    </div>
+    <div class="ibox-content">
+        <form class="form-horizontal">
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">项目名称</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="EventID" value="" id="EventID" readonly style="display:none">
+                    <input type="text" class="form-control" name="EventName" value="" id="EventName" readonly>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <!--<div class="form-group">
+            <label class="col-sm-2 control-label">所属阶段</label>
+            <div class="col-sm-6">
+                <select class="form-control m-b" name="Phase">
+                    <option>Final</option>
+                    <option>Semifinals</option>
+                    <option>Quarterfinals</option>
+                    <option>Round of 16</option>
+                </select>
+            </div>
+        </div>-->
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">轮次编码</label>
+
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="PhaseCode" value="" id="PhaseCode" readonly>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">序号</label>
+
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="PhaseOrder" value="" id="PhaseOrder" readonly>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">轮次名</label>
+
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="PhaseName" value="" id="PhaseName" readonly>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">轮次本地名</label>
+
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="PhaseLocalName" value="" id="PhaseLocalName" readonly>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">轮次描述</label>
+
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="PhaseDescription" value="" id="PhaseDescription" readonly>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">开始时间</label>
+
+                <div class="col-sm-6">
+                    <div class="input-group date" id="starttime">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input type="text" class="form-control" value="" name="startdate">
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="" name="starttime" id="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">结束时间</label>
+
+                <div class="col-sm-6">
+                    <div class="input-group date" id="starttime">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input type="text" class="form-control" value="" name="enddate">
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="" name="endtime" id="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+        </form>
+        <div class="ibox-content">
+            <div class="col-sm-4 col-sm-offset-2">
+                <button class="btn btn-white" type="submit" onclick="javascript: $('#TurnEdit').hide();">关闭</button>
+                <button class="btn btn-primary" onclick="Shedule.NewTurnPost();">保存更改</button>
+            </div>
+        </div>
+        
+    </div>
+
+</div>

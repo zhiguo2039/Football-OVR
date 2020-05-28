@@ -1,0 +1,18 @@
+INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_Delegation]( 
+	[DelegationCode]
+      ,[DelegationName]
+      ,[DelegationLocalName]
+      ,[DelegationFullName]
+      ,[DelegationLocalFullName]
+      ,[DelegationSYMBOL]
+	  ,DelegationModifyTag
+) 
+VALUES (
+'{DelegationCode}', 
+'{DelegationName}', 
+'{DelegationLocalName}',
+'{DelegationFullName}',
+'{DelegationLocalFullName}',
+'{DelegationSYMBOL}',
+'N'
+)

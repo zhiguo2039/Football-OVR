@@ -1,0 +1,21 @@
+INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_Competition]( 
+      [Name]
+      ,[LocalName]
+      ,[ShortName]
+      ,[LocalShortName]
+      ,[OpenDate]
+      ,[CloseDate]
+      ,[Symbol]
+      ,[Mascot]
+      ,[Sponsor]
+) 
+VALUES (
+'{Name}', 
+'{LocalName}',
+'{ShortName}',
+'{LocalShortName}',
+'{OpenDate}', 
+'{CloseDate}',
+'', 
+'',
+'')

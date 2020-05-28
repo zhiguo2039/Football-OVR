@@ -1,0 +1,42 @@
+INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_Official]( 
+	[OfficialCode]
+      ,[OfficialName]
+      ,[OfficialLocalName]
+      ,[DelegationID]
+      ,[ContryRegionCode]
+      ,[OfficialShortName]
+      ,[OfficialLocalShortName]
+      ,[OfficialFamilyName]
+      ,[OfficialGivenName]
+      ,[OfficialTVName]
+      ,[OfficialTVShortName]
+      ,[OfficialBirthDay]
+      ,[OfficialIFCode]
+      ,[OfficialFunction]
+      ,[OfficialMemo]
+      ,[OfficialGender]
+      ,[OfficialWeight]
+      ,[OfficialHeight]
+	  ,[OfficialModifyTag]
+) 
+VALUES (
+'{OfficialCode}', 
+'{OfficialName}', 
+'{OfficialLocalName}',
+{DelegationID},
+'{ContryRegionCode}',
+'{OfficialShortName}',
+'{OfficialLocalShortName}',
+'{OfficialFamilyName}',
+'{OfficialGivenName}',
+'{OfficialTVName}',
+'{OfficialTVShortName}',
+'{OfficialBirthDay}',
+'{OfficialIFCode}',
+'{OfficialFunction}',
+'{OfficialMemo}',
+'{OfficialGender}',
+{OfficialWeight},
+{OfficialHeight},
+'N'
+)

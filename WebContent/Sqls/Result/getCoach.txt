@@ -1,0 +1,1 @@
+SELECT * from Game_Official where OfficialFunction='COACH' and [OVR_DatabaseFBL].[dbo].[Game_Official].[OfficialModifyTag]<>'D'

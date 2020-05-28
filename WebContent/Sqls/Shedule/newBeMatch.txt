@@ -1,0 +1,60 @@
+
+
+declare @i int
+declare @s int
+declare @eventteam char
+declare @EventDescription nvarchar(200)
+declare @EventGender varchar(10)
+declare @PhaseCode  varchar(50)
+declare @eventcode varchar(50)
+declare @PhaseID int 
+set @PhaseID={PhaseID}
+select @eventteam=EventTeam from Game_Event where ID=(select EventID from Game_Phase where ID=@PhaseID)
+select @EventDescription=EventDescription from Game_Event where ID =(select EventID from Game_Phase where ID=@PhaseID)
+select @EventGender=EventGender from Game_Event where ID =(select EventID from Game_Phase where ID=@PhaseID)
+select @PhaseCode=PhaseCode from Game_Phase where ID=@PhaseID
+select @eventcode=EventCode from Game_Event  where ID =(select EventID from Game_Phase where ID=@PhaseID)
+
+set @i=0
+set @s={sNum}
+declare @Sum int
+declare @scode varchar(50)
+while @i<={count}
+begin
+    set @Sum=@i+@s
+    print @eventteam
+    if(@Sum<10)
+     set @scode='000'+cast(@s+@i as varchar)
+     else if(@Sum>10 and @Sum<100)
+     set @scode='00'+cast(@s+@i as varchar)
+     else if(@Sum>100 and @Sum<1000)
+     set @scode='0'+cast(@s+@i as varchar)
+     else 
+     set @scode=cast(@s+@i as varchar)
+    begin
+		 INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_Match]( 
+		[MatchCode]
+		  ,[MatchName]
+		  ,[MatchLocalName]
+		  ,[PhaseID]
+		  ,[PhaseOrder]
+		  ,[groupID]
+		,[MatchOrder]
+		,[UploadMatchCode]
+		) 
+		VALUES (
+		@eventcode+@EventGender+@PhaseCode+@scode+'00--', 
+		'第'+cast(@s+@i as varchar)+'场', 
+		'第'+cast(@s+@i as varchar)+'场', 
+		@PhaseID,
+		'{PhaseOrder}',
+		null,
+		cast(@s+@i as varchar),
+		'FBL'+@EventGender+@EventDescription+@PhaseCode+@scode+'00--'
+		)
+	end
+
+set @i=@i+1
+
+continue
+end

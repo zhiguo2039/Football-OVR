@@ -1,0 +1,6 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Official]
+  
+  set 
+
+  [OfficialModifyTag]='D'
+  where ID={ID}

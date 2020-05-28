@@ -1,0 +1,13 @@
+
+<select data-placeholder="Choose a Official..." class="chosen-select col-lg-2" tabindex="2" id="">
+
+    <%
+    for(var i =0;i<tplData.length;i++){ var aItem=tplData[i];
+                          %>
+
+              <option value="<%= aItem.ID%>"><%= aItem.OfficialName%></option>
+        <%}%>
+</select>
+
+
+

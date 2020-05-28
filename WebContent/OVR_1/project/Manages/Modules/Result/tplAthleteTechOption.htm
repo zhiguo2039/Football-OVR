@@ -1,0 +1,15 @@
+    <%
+    for(var i =0;i<tplData.length;i++){ var aItem=tplData[i];
+                                        %>
+
+    <div class="col-lg-6" id="AthTechID" style="padding:5px">
+
+
+        <button class="btn-block" id="btn1-<%=i%>" value="<%= aItem.ID%>" onclick="Result.pickbtn1(<%=i%>)"><%= aItem.TechCode%>--<%= aItem.TechLocalName%></button>
+       
+
+    </div> <%}%>
+
+
+
+

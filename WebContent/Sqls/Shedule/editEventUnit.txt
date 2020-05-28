@@ -1,0 +1,7 @@
+update Game_Session 
+set  
+   SessionCode='{SessionCode}'
+  ,SessionOrder='{SessionOrder}'
+  ,SessionStartTime='{SessionStartTime}'
+  ,SessionTypeCode='{SessionTypeCode}'
+where ID={ID}

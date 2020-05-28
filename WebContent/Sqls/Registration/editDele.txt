@@ -1,0 +1,4 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Delegation]
+  set DelegationCode='{DelegationCode}',DelegationName='{DelegationName}',DelegationLocalName='{DelegationLocalName}',DelegationFullName='{DelegationFullName}',DelegationLocalFullName='{DelegationLocalFullName}',DelegationSYMBOL='{DelegationSYMBOL}'
+     ,DelegationModifyTag='U'
+  where ID={ID}

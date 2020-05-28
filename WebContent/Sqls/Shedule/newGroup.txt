@@ -1,0 +1,22 @@
+﻿ 
+ declare @i int
+set @i= ASCII('A')
+while @i<ASCII('A')+{GroupNum}
+begin
+
+     INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_Group]( 
+		[PhaseID]
+      ,[GroupCode]
+      ,[GroupName]
+      ,[GroupLocalName]
+) 
+VALUES (
+{PhaseID}, 
+char(@i)+'组', 
+char(@i)+'组', 
+char(@i)+'组'
+)
+set @i=@i+1
+
+continue
+end

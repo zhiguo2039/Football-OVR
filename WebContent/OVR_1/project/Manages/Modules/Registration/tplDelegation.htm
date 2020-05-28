@@ -1,0 +1,105 @@
+﻿<style>
+    	.form-group{margin-bottom:20px}
+    }
+</style>
+<div class="col-lg-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>代表团信息</h5>
+            <div class="ibox-tools">
+                <button type="button" class="btn btn-outline btn-default" onclick="Sign.NewDele()">
+                    <i class="fa fa-edit"></i><font color="black"> 新增数据</font>
+                </button>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="table-responsive">
+                <table id="table" class="table table-striped table-bordered table-hover dataTables-example">
+                    <thead>
+                        <tr>
+                            <th>操作</th>
+                            <th>代码</th>
+                            <th>名称</th>
+                            <th>中文名</th>
+                            <th>全称</th>
+                            <th>中文全称</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                         for(var i=0;i<tplData.length;i++){
+                               var aItem=tplData[i];
+                        %>
+                        <tr class="gradeA">
+                            <td class="center"><a onclick="Sign.showEditDlg(<%= i%>)">修改</a>|<a onclick="Sign.delDelegation(<%= i%>);">删除</a></td>
+                            <td><%= aItem.DelegationCode%></td>
+                            <td><%= aItem.DelegationName%></td>
+                            <td><%= aItem.DelegationLocalName%></td>
+                            <td><%= aItem.DelegationFullName%></td>
+                            <td><%= aItem.DelegationLocalFullName%></td>
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 添加代表团模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    添加代表团信息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form method="get" class="form-horizontal" id="VDele">
+                        <div class="form-group" style="">
+                            <div class="rowGroup">
+                                <label class="col-sm-2 control-label" for="DelegationCode">*代码:</label>
+                                <div class="col-sm-3"><input type="text" class="form-control" id="DelegationCode" name="DelegationCode"></div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="rowGroup">
+                                <label class="col-sm-2 control-label" for="DelegationName">*名称:</label>
+                                <div class="col-sm-4"><input type="text" class="form-control" id="DelegationName" name="DelegationName"></div>
+                            </div>
+                            <div class="rowGroup">
+                                <label class="col-sm-2 control-label" for="DelegationLocalName">*中文名:</label>
+                                <div class="col-sm-3"><input type="text" class="form-control" id="DelegationLocalName" name="DelegationLocalName"></div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="rowGroup">
+                                <label class="col-sm-2 control-label" for="DelegationFullName">*全称:</label>
+                                <div class="col-sm-4"><input type="text" class="form-control" id="DelegationFullName" name="DelegationFullName"></div>
+                            </div>
+                            <div class="rowGroup">
+                                <label class="col-sm-2 control-label" for="DelegationLocalFullName">*中文全称:</label>
+                                <div class="col-sm-3"><input type="text" class="form-control" id="DelegationLocalFullName" name="DelegationLocalFullName"></div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                </form>
+                <div class="col-sm-3 pull-right">*为必填项!</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-primary" onclick="Sign.doDelePost();">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

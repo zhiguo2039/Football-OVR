@@ -1,0 +1,253 @@
+<div class="col-lg-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>官方公告</h5>
+
+            <div class="ibox-tools" style="">
+
+                <button class="btn btn-sm " onclick="CommonData.PrintC67();" title="官方公告">
+                    <i class="fa fa-files-o"></i>官方通告C67
+                </button>
+            
+                <button type="button" class="btn btn-outline btn-default" data-toggle="modal" data-target="#News_modal" onclick="">
+                     <i class="fa fa-plus"></i><font color="black"> 发布新公告</font>
+                </button>
+            </div>
+        </div>
+        <div class="ibox-content">
+
+            <div class="table-responsive">
+				<table id="addranktable" class="table table-striped table-bordered table-hover dataTables-example " >
+	                <thead>
+						<tr>
+						<th>选择</th>
+							<th>操作</th>
+                            <th>比赛项目</th>
+							<th>主标题</th>
+                            <th>子标题</th>
+							<th>概要</th>
+							<th>发布人</th>
+							<th>时间</th>
+							<th>详情</th>
+						</tr>
+                     </thead>
+                     <tbody>
+                     <%
+                         
+                     for( var j=0;j<newsinfo.length;j++) 
+                          { var aItem1=newsinfo[j];
+                     %>
+						<tr>
+						<td>
+								<input id="newsradio" class="pull-left" name="newsradio" type="radio" value="<%=aItem1.ID%>" />
+							
+						</td>
+							
+							<td>
+								<a data-toggle="modal" data-target="#reNews_modal" onclick="CommonData.shownews(<%=j%>);" >修改</a>/
+								<a onclick="CommonData.Delnews(<%=aItem1.ID%>);">删除</a>
+							</td>
+                            <td><%=aItem1.EventGender%></td>
+							<td><%=aItem1.NewsTitle%></td>
+                            <td><%=aItem1.NewsSubTitle%></td>
+							<td><%=aItem1.NewsSummary%></td>
+							<td><%=aItem1.NewsPublisher%></td>
+							<td><%=aItem1.NewsTime %></td>
+							<td><a data-toggle="modal" data-target="#Newsinfo_modal" onclick="CommonData.Detail(<%=j%>);">查看内容</a></td>
+						</tr>
+						<%
+						
+						}
+						%>
+					</tbody>
+	
+				</table>
+				
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+									<!-- 模态框（Modal）---------------------------官方公告------------- -->
+										<div class="modal fade" id="News_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog  modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title pull-left" id="myModalLabel">官方公告</h4>
+                                                    </div>
+                                                    <div class="modal-body" id="modal_body">
+                                                        <table id="addranktable" class="table  table-stripped toggle-arrow-tiny  ">
+                                                            <tr><td></td><td></td><td></td><td></td></tr>
+                                                            <tr>
+                                                                <td>主标题：</td>
+                                                                <td colspan="3"><input id="Newstitle" name="Newstitle" type="text" class="form-control" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>子标题：</td>
+                                                                <td colspan="3"><input id="Newssubtitle" name="Newssubtitle" type="text" class="form-control" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>概要：</td>
+                                                                <td colspan="3"><input id="Newsummary" name="Newsummary" type="text" class="form-control" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>时间：</td>
+                                                                <td colspan="2"><input id="Newstime" name="Newstime" type="text" class="form-control " placeholder="例如：2018/10/1 10:10:20" /></td>
+                                                                <td><button type="button" class="btn btn-default" onclick="CommonData.getnowtime();">当前时间</button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>发布人：</td>
+                                                                <td><input id="NewsPublisher" name="NewsPublisher" type="text" class="form-control " /></td>
+                                                                <td>类型：</td>
+                                                                <td >
+                                                                    <label><input name="checkbox" id="Results" type="checkbox" value="1" />Result</label>
+                                                                </td>
+                                                                <td >
+                                                                    <label><input name="checkbox" id="Schedule" type="checkbox" value="2" />Schedule</label>
+                                                                </td>
+                                                                <td >
+                                                                    <label><input name="checkbox" id="Other" type="checkbox" value="4" />Other</label>
+                                                                </td>
+                                                                <!--<td>
+                                                                    <select class="input-sm form-control input-s-sm inline" name="Newsstatus" id="Newsstatus">
+                                                                        <option value="0">Results</option>
+                                                                        <option value="1">Schedule</option>
+                                                                        <option value="2">Other</option>
+                                                                    </select>
+                                                                </td>-->                                                                
+                                                            </tr>
+                                                            <tr>
+                                                                <td>比赛项目：</td>
+                                                                <td>
+                                                                    <select class="input-sm form-control input-s-sm inline" name="EventSelect" id="EventSelect">
+                                                                        <option value="M">男子</option>
+                                                                        <option value="W">女子</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>内容：</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="4">
+                                                                    <textarea id="Newsinfo" rows="8" cols="70" placeholder="请输入官方公告"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="CommonData.newNews();">确定</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+											<!-- /.modal -->
+										</div>
+										
+										
+									<!-- 模态框（Modal）---------------------------修改官方公告------------- -->
+										<div class="modal fade" id="reNews_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog  modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title pull-left" id="myModalLabel">修改公告</h4>
+                                                    </div>
+                                                    <div class="modal-body" id="modal_body">
+                                                        <input id="reNewsid" name="reNewstitle" type="text" class="form-control" style="display:none" />
+                                                        <table id="addranktable" class="table  table-stripped toggle-arrow-tiny  ">
+                                                            <tr><td></td><td></td><td></td><td></td></tr>
+                                                            <tr>
+                                                                <td>主标题：</td>
+                                                                <td colspan="3"><input id="reNewstitle" name="reNewstitle" type="text" class="form-control" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>子标题：</td>
+                                                                <td colspan="3"><input id="reNewssubtitle" name="reNewssubtitle" type="text" class="form-control" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>概要：</td>
+                                                                <td colspan="3"><input id="reNewsummary" name="reNewsummary" type="text" class="form-control" /></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>时间：</td>
+                                                                <td colspan="2"><input id="reNewstime" name="reNewstime" type="text" class="form-control " placeholder="例如：2018/10/1 10:10:20" /></td>
+                                                                <td><button type="button" class="btn btn-default" onclick="CommonData.getnowtime();">当前时间</button></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>发布人：</td>
+                                                                <td><input id="reNewsPublisher" name="reNewsPublisher" type="text" class="form-control " /></td>
+                                                                <td>类型：</td>
+                                                                <td>
+                                                                    <label><input name="recheckbox" id="Results" type="checkbox" value="1" />Result</label>
+                                                                </td>
+                                                                <td>
+                                                                    <label><input name="recheckbox" id="Schedule" type="checkbox" value="2" />Schedule</label>
+                                                                </td>
+                                                                <td>
+                                                                    <label><input name="recheckbox" id="Other" type="checkbox" value="4" />Other</label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>比赛项目：</td>
+                                                                <td>
+                                                                    <select class="input-sm form-control input-s-sm inline" name="reEventSelect" id="reEventSelect">
+                                                                        <option value="M">男子</option>
+                                                                        <option value="W">女子</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>内容：</td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="4">
+                                                                    <textarea id="reNewsinfo" rows="8" cols="70" placeholder="请输入官方公告"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="CommonData.reNews();">确定</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+											<!-- /.modal -->
+										</div>
+										
+										
+											<!-- 模态框（Modal）---------------------------官方公告详情------------- -->
+										<div class="modal fade" id="Newsinfo_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+														<h4 class="modal-title pull-left" id="myModalLabel">公告内容</h4>
+													</div>
+													<div class="modal-body" id="modal_body">
+														<textarea id="text-newsdetail" rows="8" cols="65" placeholder=""></textarea>
+														
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+														<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="CommonData.GetC67();">导出官方公告</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal -->
+										</div>
+																		
+										

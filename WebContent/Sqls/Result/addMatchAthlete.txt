@@ -1,0 +1,2 @@
+INSERT INTO Game_MatchAthlete (MatchID,ParticipantID,AthleteID,PositionCode,Property,AthleteOrder)
+VALUES {Infos};

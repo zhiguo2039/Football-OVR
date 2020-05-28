@@ -1,0 +1,3 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Rank] 
+  set RankStatus='Y'
+  where ID in ({ID})

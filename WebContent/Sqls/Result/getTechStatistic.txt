@@ -1,0 +1,13 @@
+ select
+ Game_SingleTech.[ID],
+  Game_SingleTech.MatchID,
+	   Game_SingleTech.[MatchSectionOrder],
+	   Game_SingleTech.[AthleteID]
+      ,Game_SingleTech.[TechCode]
+      ,Game_SingleTech.TimePoint
+      ,Game_SingleTech.[Memo]
+	  ,Game_SingleTech.ParticipantID
+  ,CONVERT(varchar,Game_SingleTech.BeginTime,108) as BeginTime,Dict_Tech.*,Game_Athlete.AthleteName,Game_Athlete.AthleteShirtNumber,Game_Athlete.AthleteLocalName 
+  from Game_SingleTech,Dict_Tech,Game_Athlete 
+  where Game_SingleTech.AthleteID=Game_Athlete.ID and Game_SingleTech.TechCode=Dict_Tech.TechCode AND ParticipantID={ParticipantID} and Game_SingleTech.TechCode not in ('SG','SA')
+  AND MatchID={MatchID} ORDER BY BeginTime DESC

@@ -1,0 +1,1 @@
+select ROW_NUMBER() over(order by GroupPoints desc,GoalDifference desc,GoalFor desc)as Rank,gp.*,p.ParticipantName from Game_GroupParticipant gp,Game_Participant p where gp.ParticipantID=p.ID and GroupID={GroupID}

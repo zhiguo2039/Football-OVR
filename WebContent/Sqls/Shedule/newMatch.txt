@@ -1,0 +1,26 @@
+INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_Match]( 
+	[MatchCode]
+      ,[MatchName]
+      ,[MatchLocalName]
+      ,[PhaseID]
+      ,[GroupID]
+      ,[VenueCode]
+      ,[LocationCode]
+      ,[PhaseOrder]
+      ,[MatchOrder]
+      ,[BeginTime]
+      ,[EndTime]
+) 
+VALUES (
+'{MatchCode}', 
+'{MatchName}', 
+'{MatchLocalName}',
+{PhaseID},
+{GroupID},
+'{VenueCode}',
+'{LocationCode}',
+'{PhaseOrder} ',
+'{MatchOrder}',
+'{BeginTime}',
+'{EndTime}'
+)

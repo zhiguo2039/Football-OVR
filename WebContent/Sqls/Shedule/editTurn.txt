@@ -1,0 +1,9 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Phase]
+  set 
+  PhaseCode='{PhaseCode}'
+  ,PhaseName='{PhaseName}'
+  ,PhaseLocalName='{PhaseLocalName}'
+  ,PhaseOrder='{PhaseOrder}'
+  ,PhaseDescription='{PhaseDescription}'
+
+  where ID={ID}

@@ -1,0 +1,17 @@
+INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_Phase]( 
+	[PhaseCode]
+      ,[EventID]
+      ,[PhaseName]
+      ,[PhaseLocalName]
+	  ,[PhaseLongName]
+      ,[PhaseOrder]
+      ,[PhaseDescription]
+) 
+VALUES (
+'{PhaseCode}', 
+{EventID}, 
+'{PhaseName}',
+'{PhaseLocalName}',
+'{PhaseLocalName}',
+'{PhaseOrder}',
+'{PhaseDescription} ')

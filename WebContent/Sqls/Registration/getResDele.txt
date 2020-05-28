@@ -1,0 +1,2 @@
+SELECT *
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Delegation] where DelegationModifyTag<>'D' and  ID not in (select DelegationID from Game_Participant where EventID={EventID}) 

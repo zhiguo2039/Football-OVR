@@ -1,0 +1,100 @@
+﻿
+								<div class="ibox-title">
+									<div class="ibox-tools">
+										<div class="col-sm-2">
+											<select id="eventsel" class="form-control m-b" name="account" onchange="Rank.LoadRankInfo();">
+
+											<%
+											for( var i=0;i<eventInfo.length;i++) 
+                                               { var aItem=eventInfo[i];
+											%>
+											<option value="<%=aItem.ID%>"  >
+											   <%=aItem.EventLocalName%>
+                                            </option>
+											<%
+											}
+											%>
+											</select>
+                                           
+										</div>
+
+                                        <div class="col-sm-2 ">
+                                            <select id="ODF_Medal" class="form-control col-sm-2" name="account">
+                                                <option value="1">DT_MEDALLISTS_DISCIPLINE</option>
+                                                <option value="2">DT_MEDALLISTS</option>
+                                                <option value="3">DT_MEDALS </option>
+                                                <option value="4">DT_MEDALLISTS_DAY</option>
+                                                <option value="5">DT_RANKING</option>
+                                            </select>                                           
+                                        </div>
+                                        <button class=" btn btn-outline btn-default col-sm-offset-1" onclick="ODF.Get_MedalXMl();">
+                                           <font color="black">上传XML</font>
+                                        </button>	
+                                        						
+                                        <button class="btn btn-outline btn-default col-sm-offset-1" onclick="CommonData.PrintC92C();"><i class="fa fa-files-o"></i>C92C报表</button>
+                                        <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC93();"><i class="fa fa-files-o"></i>C93报表</button>
+                                        <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC95();"><i class="fa fa-files-o"></i>C95报表</button>
+                                        <button type="button" class="btn btn-default col-sm-offset-0 " onclick="Rank.AutoRankInfo();">生成名次</button>
+                                        <button class="btn btn-outline btn-default col-sm-offset-0" onclick="Rank.RankOfficial();">排名官方</button>	
+                                        <button type="button" class="btn btn-default col-sm-offset-0 " onclick="Rank.MedalStatistics();" data-toggle="modal" data-target="#myModal2">奖牌统计</button>
+										<button type="button"  class="btn btn-outline btn-default" onclick="Rank.LoadRankFreeInfo();" data-toggle="modal" data-target="#myModal1">
+								            <i class="fa fa-plus"></i><a href="#" ><font color="black"> 新增</font></a>  
+							            </button>
+
+                                        <li>
+                                            <button type="button" class="btn btn-default dropdown-toggle col-sm-offset-4" data-toggle="dropdown">修订报表<span class="caret"></span></button>
+                                            <ul class="dropdown-menu" style="top:10%;left:83%">
+                                                <li><a onclick="CommonData.ShowPDFVersion('C31T');">修订C92C报表</a></li>
+                                                <li><a onclick="CommonData.ShowPDFVersion('C33');">修订C93报表</a></li>
+                                                <li><a onclick="CommonData.ShowPDFVersion('C38');">修订C95报表</a></li>
+
+                                            </ul>
+                                        </li>		
+										<a class="collapse-link">
+											<i class="fa fa-chevron-up"></i>
+										</a>
+										<!-- 模态框（Modal） -->
+										<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+														<h4 class="modal-title pull-left" id="myModalLabel">名次添加</h4>
+													</div>
+													<div class="modal-body" id="modal_body">
+														
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+														<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="Rank.AddRankInfo();">提交</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal -->
+										</div>
+                                        <!-- 模态框（Modal） -->
+                                        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <!--<div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title pull-left" id="myModalLabel">奖牌统计</h4>
+                                                    </div>-->
+                                                    <div class="modal-body" id="modal_body2">
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal -->
+                                        </div>
+									</div>
+								</div>
+		<div class="row col-lg-12" id="RankEvent_RankInfo">
+    
+        </div>

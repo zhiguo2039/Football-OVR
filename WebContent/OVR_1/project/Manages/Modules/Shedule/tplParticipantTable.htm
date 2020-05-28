@@ -1,0 +1,39 @@
+﻿
+
+<!--<div class="ibox-content">-->
+<div class="table-responsive">
+    <table id="GroupDraw" class="table table-striped table-bordered table-hover dataTables-example">
+        <thead>
+            <tr>
+                <th></th>
+                <th>参赛队</th>
+                <th>分组</th>
+                <th style="width:180px;">组内序号</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%for(var i =0;i<tplData.length;i++){
+                var aItem=tplData[i];   
+            %>
+            <tr class="gradeA">
+                <td><input type="radio" class="i-checks" name="GroupParticipant[]" onchange="Shedule.PostGroupParticipant(<%=aItem.ParticipantID%>);"></td>
+                <td class="center"><%=aItem.ParticipantName%></td>
+                <%if(aItem.GroupName!=""){%>
+                <td class="center" id="GroupName<%=i%>"><%=aItem.GroupName %></td>
+                <%}else{%>
+                <td class="center"></td>
+                <%}%>
+                <td class="center" onchange="Shedule.PostGroupParticipantDraw(<%=aItem.ParticipantID%>);"><%=aItem.GroupDrawNo%></td>
+                <td class="center">
+                    <a onclick="Shedule.deleteParDrawInfo(<%=i%>);">删除</a>
+                </td>	
+            </tr>
+
+            <%}%>
+        </tbody>
+
+    </table>
+
+</div>
+<!--</div>-->

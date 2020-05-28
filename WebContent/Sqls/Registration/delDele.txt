@@ -1,0 +1,8 @@
+
+update [OVR_DatabaseFBL].[dbo].[Game_Delegation] 
+set DelegationModifyTag='D'
+where ID={ID}
+
+update [OVR_DatabaseFBL].[dbo].[Game_Athlete]
+set AthleteModifyTag='D' 
+where DelegationID={ID}

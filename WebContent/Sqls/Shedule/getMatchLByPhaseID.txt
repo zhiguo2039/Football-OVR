@@ -1,0 +1,11 @@
+  
+  
+  
+  
+  
+    Select tmp.ID,MatchName,[OVR_DatabaseFBL].[dbo].[Dict_Venue].VenueName 
+  From
+  (SELECT [OVR_DatabaseFBL].[dbo].[Game_Match].ID,MatchName,VenueCode
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Match]Where [OVR_DatabaseFBL].[dbo].[Game_Match].PhaseID={PhaseID}) as tmp left join [OVR_DatabaseFBL].[dbo].[Dict_Venue]
+   
+ ON tmp.VenueCode=[OVR_DatabaseFBL].[dbo].[Dict_Venue].VenueCode

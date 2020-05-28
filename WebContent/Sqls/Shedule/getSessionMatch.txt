@@ -1,0 +1,12 @@
+SELECT 
+EventName,
+PhaseName,
+MatchName,
+SessionOrder,
+BeginTime,
+MatchOrder,
+a.PhaseOrder
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Match] a,[OVR_DatabaseFBL].[dbo].[Game_Phase] b
+  ,[OVR_DatabaseFBL].[dbo].[Game_Session] c,[OVR_DatabaseFBL].[dbo].[Game_Event] d
+  WHERE a.PhaseID=b.ID AND b.EventID=d.ID
+  AND a.SessionID=c.ID

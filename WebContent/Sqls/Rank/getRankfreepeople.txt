@@ -1,0 +1,1 @@
+select * from Game_Participant where ID not in (select ParticipantID from Game_Rank) and EventID={EventID}

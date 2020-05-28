@@ -1,0 +1,13 @@
+﻿
+
+<select class="form-control dual_select" multiple id="ParticipantName" name="ParticipantName" onchange="Sign.LoadParticipantName()">
+
+    <%
+    for(var i=0;i<tplData.length;i++){ var aItem=tplData[i];
+                          %>
+
+        <option value="<%= aItem.ID%>"><%= aItem.AthleteCode%>--<%= aItem.AthleteName%>--<%= aItem.AthleteLocalName%></option>
+        <%}%>
+
+</select>
+

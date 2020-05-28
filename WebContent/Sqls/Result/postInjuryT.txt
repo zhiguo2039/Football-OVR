@@ -1,0 +1,1 @@
+update Game_MatchSection set InjuryTime='{InjuryTime}' where MatchID={MatchID} and SectionOrder={SectionOrder}

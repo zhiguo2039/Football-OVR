@@ -1,0 +1,10 @@
+update Game_Match set ScoreA={ScoreA},ScoreB={ScoreB},WinType={WinType} where ID={MatchID} 
+update Game_MatchSection set ScoreA={SectionScoreA1},ScoreB={SectionScoreB1} where MatchID={MatchID} and SectionOrder=1
+update Game_MatchSection set ScoreA={SectionScoreA2},ScoreB={SectionScoreB2} where MatchID={MatchID} and SectionOrder=2
+update Game_MatchSection set ScoreA={SectionScoreA3},ScoreB={SectionScoreB3} where MatchID={MatchID} and SectionOrder=3
+update Game_MatchSection set ScoreA={SectionScoreA4},ScoreB={SectionScoreB4} where MatchID={MatchID} and SectionOrder=4
+update Game_MatchSection set ScoreA={SectionScoreA5},ScoreB={SectionScoreB5} where MatchID={MatchID} and SectionOrder=5
+
+exec [dbo].[pro_updateGroupParticipant] {ParticipantAID}
+exec [dbo].[pro_updateGroupParticipant] {ParticipantBID}
+

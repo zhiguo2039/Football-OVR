@@ -1,0 +1,175 @@
+﻿<style>
+    .col-lg-12{
+    height:800px;
+    clear: both;
+    overflow-y:scroll;
+    white-space: nowrap;
+}
+   
+    .col-lg-1 control-label {
+    float:left;
+    }
+    .btn {
+        float:initial;
+    }
+</style>
+
+
+<div class="col-lg-12 ">
+    <div class="ibox float-e-margins">
+      
+          
+            <div class="ibox-content" id="ResultInfo">
+                <div class="row">
+                    <label class="col-lg-1 control-label">比赛项目</label>
+                    <div id="EventSelect" style="position:relative;">
+
+                    </div>
+                    <label class="col-lg-1 control-label">比赛阶段</label>
+                    <div id="PhaseSelect" style="position:relative;">
+
+                    </div>
+                    <li>
+                        <button type="button" class="btn btn-default dropdown-toggle col-sm-offset-4" data-toggle="dropdown">修订报表<span class="caret"></span></button>
+                        <ul class="dropdown-menu" style="top:10%;left:83%">
+                            <li><a onclick="CommonData.ShowPDFVersion('C76');">修订C76报表</a></li>
+                            <li><a onclick="CommonData.ShowPDFVersion('C84B');">修订C84B报表</a></li>
+                            <li><a onclick="CommonData.ShowPDFVersion('C85A');">修订C85A报表</a></li>
+                            <li><a onclick="CommonData.ShowPDFVersion('C89');">修订C89报表</a></li>
+
+                        </ul>
+                    </li>
+                   
+                    <div class="col-lg-6">
+                        <button class="btn btn-sm btn-default col-sm-offset-12" onclick="Result.DelayedStatus();">比赛延误</button>
+
+                        <button class="btn btn-sm btn-default col-sm-offset-0" onclick="Result.ScheduleStatus();">比赛如期</button>
+
+                        <button class="btn btn-sm btn-default col-sm-offset-0" onclick="Result.StartStatus()">比赛开始</button>
+
+                        <button class="btn btn-sm btn-default col-sm-offset-0" onclick="Result.BreakStatus()">中场休息</button>
+
+                        <button class="btn btn-sm btn-default col-sm-offset-0" onclick="Result.FinishedStatus()">比赛结束</button>
+                  
+                        <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC76();"><i class="fa fa-files-o"></i>C76报表</button>                       
+                        <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC84B();"><i class="fa fa-files-o"></i>C84B报表</button> 
+                        <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC85A();"><i class="fa fa-files-o"></i>C85A报表</button>
+                        <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC89();"><i class="fa fa-files-o"></i>C89报表</button> 
+                       
+                    </div>
+                    <div id="tab-2">
+
+                    </div>
+                    <div class="" id="EntryScore">
+
+                    </div>
+
+                    <div id="">
+                        <div class="" id="CheckPlayer" style="display:none">
+
+                            <label class="col-sm-8 control-label"><h4>教练信息</h4></label>
+                            <div class="ibox-content" style="margin:0 30px">
+
+                                <label class="col-sm-1 control-label">参赛教练:</label>
+                                <div id="CoachSelect" style=" position:relative">
+
+                                </div>
+                                <!--<label class="col-sm-1 control-label">助理教练:</label>
+                                <div id="CoachSelect" style=" position:relative">
+
+                                </div>-->
+                                <button class="btn btn-sm btn-primary col-sm-offset-1" onclick="Result.doCoachPost();">提交</button>
+                            </div>                           
+                            <label class="col-sm-8 control-label"><h4>队服颜色信息</h4></label>
+
+                            <div class="ibox-content" style="margin:0 30px">
+
+                                <label class="col-lg-1 control-label">衬衫颜色</label>
+                                <div class="col-sm-2" style="position:relative">
+                                    <input type="text" class="form-control" id="ShirtColor" name="" value="" >
+                                </div>
+                                <label class="col-lg-1 control-label">短裤颜色</label>
+                                <div class="col-sm-2" style="position:relative">
+                                    <input type="text" class="form-control" id="ShortColor" name="" value="" >
+                                </div>
+                                <label class="col-lg-1 control-label">袜子颜色</label>
+                                <div class="col-sm-2" style="position:relative">
+                                    <input type="text" class="form-control" id="SockColor" name="" value="">
+                                </div>
+                                <button class="btn btn-sm btn-primary col-sm-offset-1" onclick="Result.doColorPost();">提交</button>
+                            </div>
+                            <label class="col-sm-8 control-label"><h4>裁判与官员信息</h4></label>
+                            <div class="ibox-content" style="margin:0 30px">
+                                <label class="col-lg-1 control-label">主裁判</label>
+                                <div id="ChiefJudgeSelect" class="col-lg-2" style=" position:relative;">
+
+                                </div>
+                                <label class="col-lg-1 control-label">裁判助理A</label>
+                                <div id="JudgeSelectA" class="col-lg-2" style="position:relative;">
+
+                                </div>
+                                <label class="col-lg-1 control-label">裁判助理B</label>
+                                <div id="JudgeSelectB" class="col-lg-2" style="position:relative;">
+
+                                </div>
+                                <label class="col-lg-1 control-label">第四官员</label>
+                                <div id="OfficialSelect" class="col-lg-2" style="position:relative;">
+
+                                </div>
+                            </div>
+                            <br>
+
+
+                            <label class="col-sm-4 control-label"><h4>检录运动员信息</h4></label><button class="btn btn-sm btn-primary col-sm-offset-4" onclick="Result.doOfficialPost();">提交</button>
+
+                            <div class="ibox-content" style="margin:0 30px">
+                                <label class="col-lg-1 control-label">报项国家</label>
+                                <div id="ParticipantSelect" style="position:relative;">
+
+                                </div>
+
+                                <button class="btn btn-sm btn-default col-sm-offset-2" onclick="Result.PlayerElected();">设置正选</button>
+                                <button class="btn btn-sm btn-default col-sm-offset-0" onclick="Result.PlayerSubstitute();">设置替补</button>
+                                <!--<button class="btn btn-sm btn-default col-sm-offset-0" onclick="Result.PlayerFP();">设置进攻</button>
+                                <button class="btn btn-sm btn-default col-sm-offset-0" onclick="Result.PlayerDF();">设置防守</button>
+                                <button class="btn btn-sm btn-default col-sm-offset-0" onclick="Result.PlayerMF();">设置中场</button>
+                                <button class="btn btn-sm btn-default col-sm-offset-0" onclick="Result.PlayerGK();">设置守门</button>-->
+                                <button class="btn btn-sm btn-default col-sm-offset-0" onclick="Result.PlayerCP();">设置队长</button>
+                                <button class="btn btn-outline btn-default col-sm-offset-1" onclick="CommonData.PrintC51();"><i class="fa fa-files-o"></i>C51报表</button>
+                                <button class="btn btn-outline btn-primary col-sm-offset-0" onclick="CommonData.ShowPDFVersion('C51');"><i class="fa fa-files-o"></i>修订C51报表</button>
+                                <button class="btn btn-sm btn-primary col-sm-offset-1" onclick="Result.HideCheckPlayer();">退出</button>
+                                <button type="button" class="btn btn-outline btn-default" onclick="Result.AddMatchAthlete();" data-toggle="modal" data-target="#AddAthModal">
+                                    <i class="fa fa-plus"></i><a href="#"><font color="black"> 新增</font></a>
+                                </button>
+
+
+                            </div>
+                            <div id="tab-3" class="ibox-content">
+
+                            </div>
+                        </div>
+
+                       
+                   
+
+                    </div>
+
+
+
+                </div>
+
+                      
+
+                    </div>
+
+
+                </div>
+            </div>
+     
+
+    </div>
+</div>        
+
+
+  
+ 

@@ -1,0 +1,104 @@
+﻿
+
+
+<div class="col-lg-12">
+    <div class="table-responsive">
+        <table style="width:1600px" class="table table-striped table-bordered table-hover dataTables-example">
+            <thead>
+                <tr>
+                    <th>操作</th>
+                    <th>运动员球服号</th>
+                    <th>运动员姓名</th>
+                    <th>运动员中文名</th>                  
+                    <th>统计名称</th>
+                    <th>统计中文名</th>
+                    <th>时间点</th>
+                    <th>时刻</th>               
+                    <th>备注</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <%
+                for(var i=0;i
+                <tplData.length;i++) { var aItem=tplData[i];
+                                     %>
+                    <tr>
+                        <td class="center">
+                            <a onclick="Result.showAthTechEdit(<%=i%>);">修改</a>|<a onclick="Result.delSingleTech(<%=i%>)">删除</a>
+                        </td>
+                        <td><%=aItem.AthleteShirtNumber%></td>
+                        <td><%=aItem.AthleteName%></td>
+                        <td><%=aItem.AthleteLocalName%></td>
+                        <td><%=aItem.TechCode%></td>
+                        <td><%=aItem.TechLocalName%></td>
+                        <td><%=aItem.BeginTime%></td>
+                        <td><%=aItem.TimePoint%>分</td>
+                        <td><%=aItem.Memo%></td>      
+                    </tr>
+                    <%
+                    }%>
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+
+</div>
+<div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    修改运动员技术信息
+                </h4>
+
+
+            </div>
+            <div class="modal-body">
+                <form method="get" class="form-horizontal">                   
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">参赛者名:</label>
+                        <div class="col-sm-4"><input type="text" class="form-control" id="TechAthleteName" readonly="readonly"></div>
+                        <label class="col-sm-3 control-label">参赛者中文名:</label>
+                        <div class="col-sm-2"><input type="text" class="form-control" id="TechAthleteLocalName" readonly="readonly"></div>                                             
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">统计类型:</label>
+                        <div id="AthleteTechSelect" class="col-sm-6">
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">开始时间:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="BeginTime"></div>
+                        <label class="col-sm-3 control-label">时刻:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="TimePoint"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">备注:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="Memo"></div>
+                       
+                    </div>
+</form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="Result.doAthTechPost();">保存更改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

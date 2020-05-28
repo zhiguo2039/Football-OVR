@@ -1,0 +1,10 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Match]
+  set 
+  MatchCode='{MatchCode}'
+  ,MatchLocalName='{MatchLocalName}'
+  ,VenueCode='{VenueCode}'
+  ,MatchOrder='{MatchOrder}'
+  ,BeginTime='{BeginTime}'
+  ,EndTime='{EndTime}'
+  ,MatchModifyTag='U'
+  where ID={ID}

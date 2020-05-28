@@ -1,0 +1,58 @@
+﻿<div class="dd" id="nestable">
+    <ol class="dd-list">
+
+        <%for(var i=0;i<tplDataA.length;i++){ var aItemA=tplDataA[i];
+                               %>
+            <li class="dd-item">
+                <div class="dd-handle" onclick="Shedule.ShowNewTurnEdit(<%=i%>)" id="Event-<%=aItemA.ID%>"><span class="label label-primary"><i class="fa fa-cog"></i></span>  <%= aItemA.EventCode%>-----<%= aItemA.EventName%></div>
+                <input class="form-control" type="text" name="EventCode" value="<%=aItemA.EventCode%>" id="EventCode<%=aItemA.ID%>" style="display:none">
+                <ol class="dd-list">
+
+                    <%for(var j=0;j<tplDataB.length;j++){ var aItemB=tplDataB[j];
+                                           if(aItemB.EventID==aItemA.ID){
+                                           %>
+
+                        <li class="dd-item">
+                            <div class="dd-handle" id="Phase-<%=aItemB.ID%>" onclick="Shedule.ShowNewMatchEdit(<%= i%>,<%= j%>);">
+                                <span class="label label-primary"><i class="fa fa-cog"></i></span> <%= aItemB.PhaseCode%>&nbsp;&nbsp;<%= aItemB.PhaseName%>
+                            </div>
+                            <ol class="dd-list">
+
+                                <%for(var k=0;k<tplDataC.length;k++){ var aItemC=tplDataC[k];
+                                                       if(aItemC.PhaseID==aItemB.ID){
+                                                       %>
+                                    <li class="dd-item" onclick="">
+                                        <div class="dd-handle" id="Match-<%=aItemC.ID%>">
+                                            <span class="pull-right"><%= aItemC.BeginTime%> </span>
+                                            <span class="label label-primary"><i class="fa fa-cog"></i></span> <%= aItemC.MatchCode%>&nbsp;&nbsp;<%= aItemC.MatchLocalName%>
+                                        </div>
+                                    </li>
+                                    <%}}%>
+
+                            </ol>
+
+                        </li>
+
+                        <%}}%>
+                </ol>
+
+            </li>
+            <%}%>
+    </ol>
+
+</div>
+
+<div id="rk_menubox" class="rk_menubox" style="display:none">
+    <div class="rk_menuitem" onclick="" id="rk_menuitem2" style="display:none"><font style="font-size:17px">批量建立</font></div>
+    <div class="rk_menuitem" onclick="" id="rk_menuitem3" style="display:none"><font style="font-size:17px">场次时间</font></div>
+    <div class="rk_menuitem" onclick="" id="rk_menuitem1"><font style="font-size:17px">编排</font></div>
+    <!--<div class="rk_menuitem" onclick="" id="rk_menuitem"><font style="font-size:17px">测试</font></div>-->
+    <div class="rk_menuitem" onclick="" id="rk_menuitem4" style="display:none"><font style="font-size:17px">编辑</font></div>
+    <div class="rk_menuitem" onclick="" id="rk_menuitem5" style="display:none"><font style="font-size:17px">删除</font></div>
+</div>
+
+<style>
+    .rk_menubox{width:100px;border:1px solid #ddd;position:absolute;z-index:999;background:#fff;border-radius:10px}
+    .rk_menuitem{line-height:35px;cursor:pointer;padding:0px 10px;}
+    .rk_menuitem:hover{background:#f4f4f4;border-radius:10px}
+</style>

@@ -1,0 +1,1 @@
+  select COUNT(*) as GroupNum From [OVR_DatabaseFBL].[dbo].[Game_GroupParticipant] where GroupID={GroupID}

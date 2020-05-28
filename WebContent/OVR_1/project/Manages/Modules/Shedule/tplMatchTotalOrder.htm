@@ -1,0 +1,28 @@
+<table id="TotalOrder"  class="table table-striped table-bordered table-hover dataTables-example">
+    <thead>
+        <tr>
+            <th>比赛名称</th>
+            <th>比赛中文名</th>
+            <th style="width:210px;">总序号</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%
+
+        for( var i=0;i
+        <tplData.length;i++) { var aItem=tplData[i];
+                             %>
+            <tr>
+
+                <td><%=aItem.MatchName%></td>
+                <td><%=aItem.MatchLocalName%></td>
+                <td><%=aItem.TotalOrder%></td>
+
+            </tr>
+            <%
+
+            }
+            %>
+    </tbody>
+
+</table>

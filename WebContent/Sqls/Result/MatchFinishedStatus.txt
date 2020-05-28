@@ -1,0 +1,4 @@
+update Game_Match set MatchScheduleStatus='FINISHED',MatchModifyTag='U' where ID in ({ID})
+update Game_Match set MatchResultStatus='UNOFFICIAL' where ID in ({ID})
+update Game_Match set EndTime=(Select CONVERT(varchar(100),GETDATE(),23)) where ID in ({ID})
+

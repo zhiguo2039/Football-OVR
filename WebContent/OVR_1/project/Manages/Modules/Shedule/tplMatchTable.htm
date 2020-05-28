@@ -1,0 +1,34 @@
+﻿
+
+<!--<div class="ibox-content">-->
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover dataTables-example">
+        <thead>
+            <tr>
+                <th></th>
+                <th>场次</th>
+                <th>场地</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <%for(var i =0;i<tplData.length;i++){
+                var aItem=tplData[i];   
+            %>
+            <tr class="gradeA">
+                <td><input type="radio" class="i-checks" name="match[]" onchange="Shedule.PostMatchVenue(<%=aItem.ID%>);"></td>
+                <td class="center"><%=EventName%>&nbsp&nbsp&nbsp<%=PhaseName%>&nbsp&nbsp&nbsp<%=aItem.MatchName%></td>
+                <%if(aItem.VenueName!="null"){%>
+                <td class="center"><%=aItem.VenueName %></td>
+                <%}else{%>
+                <td class="center"></td>
+                <%}%>
+            </tr>
+
+            <%}%>
+        </tbody>
+
+    </table>
+
+</div>
+<!--</div>-->

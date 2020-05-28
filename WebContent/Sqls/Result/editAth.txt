@@ -1,0 +1,2 @@
+update Game_MatchAthlete set Property='{Property}',PositionCode='{PositionCode}',AthleteStatus='{AthleteStatus}',Memo='{Memo}' where AthleteID={AthleteID} and MatchID={MatchID}
+update Game_Athlete set AthleteShirtNumber={AthleteShirtNumber} where ID={AthleteID}

@@ -1,0 +1,34 @@
+﻿
+
+<!--<div class="ibox-content">-->
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover dataTables-example">
+        <thead>
+            <tr>
+                <th></th>
+                <th>代码</th>
+                <th>组别</th>
+                <th>组别</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <%for(var i=0;i
+            <tplData.length;i++){ var aItem=tplData[i];
+                                  %>
+                <tr class="gradeA">
+                    <td><input type="radio"  class="i-checks" name="Group[]"></td>
+                    <td class="center"><%=aItem.GroupCode %></td>
+                    <td class="center"><%=aItem.GroupName %></td>
+                    <td class="center"><%=aItem.GroupLocalName %></td>
+                    <td class="center"><a onclick="Shedule.NewGroupMatch(<%=aItem.ID%>)">建场次</a></td>
+                </tr>
+
+                <%}%>
+        </tbody>
+
+    </table>
+
+</div>
+<!--</div>-->

@@ -1,0 +1,2 @@
+select Game_ParticipantMember.AthleteID,Game_ParticipantMember.*,Game_Athlete.* from Game_ParticipantMember,Game_Athlete where Game_Athlete.ID=Game_ParticipantMember.AthleteID AND Game_ParticipantMember.ParticipantID={ParticipantID} 
+and AthleteID not in (select AthleteID from Game_MatchAthlete where MatchID={MatchID} and ParticipantID={ParticipantID})

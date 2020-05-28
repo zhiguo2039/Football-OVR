@@ -1,0 +1,13 @@
+﻿
+
+<select data-placeholder="Choose a Phase..." class="chosen-select" tabindex="2" id="PhaseID" onchange="Shedule.ShowMatchList()">
+
+
+    <%
+    for(var i =0;i<tplData.length;i++){ var aItem=tplData[i];
+                          %>
+
+        <option value="<%= aItem.ID%>"><%= aItem.PhaseName%>--<%= aItem.PhaseLocalName%></option>
+        <%}%>
+
+</select>

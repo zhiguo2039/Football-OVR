@@ -1,0 +1,3 @@
+delete from [OVR_DatabaseFBL].[dbo].[Game_ParticipantMember] where ParticipantID={ID}
+delete from [OVR_DatabaseFBL].[dbo].[Game_Participant] where ID={ID}
+

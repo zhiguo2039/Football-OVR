@@ -1,0 +1,2 @@
+insert into Game_Session ([SessionCode],[SessionOrder],[SessionStartTime],[SessionTypeCode]) 
+values('{SessionCode}','{SessionOrder}','{SessionStartTime}','{SessionTypeCode}')

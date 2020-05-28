@@ -1,0 +1,2 @@
+DELETE FROM Game_RankMember WHERE RankID={ID}
+DELETE FROM Game_Rank WHERE ID={ID}

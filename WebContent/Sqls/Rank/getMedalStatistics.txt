@@ -1,0 +1,6 @@
+  exec proc_Medalstatistics       
+ 
+  
+   select b.DelegationName,a.* from Game_MedalStatistics a left join Game_Delegation b  on a.DelegationID=b.ID order by GoldRank,GoldRankOrder
+ 
+ 

@@ -1,0 +1,5 @@
+  
+  
+  SELECT *
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Match]
+  WHERE PhaseID={PhaseID}

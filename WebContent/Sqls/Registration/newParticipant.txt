@@ -1,0 +1,1 @@
+proc_Insert_ParticipantMember {DelegationID},{EventID},'{ParticipantName}','{ParticipantCode}','{AthleteID}'

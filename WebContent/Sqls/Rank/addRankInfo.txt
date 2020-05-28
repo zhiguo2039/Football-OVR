@@ -1,0 +1,2 @@
+INSERT INTO Game_Rank (DelegationID,EventID,ParticipantID,ParticipantCode,ParticipantName,ParticipantLocalName,RankStatus)
+VALUES {Infos};

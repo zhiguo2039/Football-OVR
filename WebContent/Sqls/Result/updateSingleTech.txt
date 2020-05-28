@@ -1,0 +1,5 @@
+
+update [OVR_DatabaseFBL].[dbo].[Game_SingleTech]
+set CurrentScoreA={CurrentScoreA},CurrentScoreB={CurrentScoreB}
+Where ID=(select max(ID) from [OVR_DatabaseFBL].[dbo].[Game_SingleTech] where TechCode='GF' and MatchID={MatchID})
+

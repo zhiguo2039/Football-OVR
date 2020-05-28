@@ -1,0 +1,3 @@
+ update [OVR_DatabaseFBL].[dbo].[Dict_Venue]
+  set VenueCode='{VenueCode}',VenueName='{VenueName}',VenueLocalName='{VenueLocalName}',VenueLongName='{VenueLongName}',VenueLocalLongName='{VenueLocalLongName}'
+  where ID={ID}

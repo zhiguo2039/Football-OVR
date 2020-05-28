@@ -1,0 +1,2 @@
+delete from Game_MatchAthlete where AthleteID={AthleteID}
+delete from Game_Athlete where ID={AthleteID}

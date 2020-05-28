@@ -1,0 +1,57 @@
+declare @MatchID int
+set @MatchID={MatchID}
+if exists(select * from Game_MatchOfficial where MatchID=@MatchID)
+	BEGIN
+		update Game_MatchOfficial set OfficialID={OfficialID1},Duty='{Duty1}' where OfficialOrder=1 and MatchID=@MatchID
+		update Game_MatchOfficial set OfficialID={OfficialID2},Duty='{Duty2}' where OfficialOrder=2 and MatchID=@MatchID
+		update Game_MatchOfficial set OfficialID={OfficialID3},Duty='{Duty3}' where OfficialOrder=3 and MatchID=@MatchID
+		update Game_MatchOfficial set OfficialID={OfficialID4},Duty='{Duty4}' where OfficialOrder=4 and MatchID=@MatchID
+	end
+else
+	begin
+		INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_MatchOfficial]( 
+			   [MatchID]
+		      ,[OfficialID]
+		      ,[Duty]
+		      ,[OfficialOrder]
+		) 
+		VALUES (
+		{MatchID},
+		{OfficialID1},
+		'{Duty1}',
+		1)
+		INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_MatchOfficial]( 
+		[MatchID]
+		      ,[OfficialID]
+		      ,[Duty]
+		      ,[OfficialOrder]
+		) 
+		VALUES (
+		{MatchID},
+		{OfficialID2},
+		'{Duty2}',
+		2)
+		INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_MatchOfficial]( 
+		[MatchID]
+		      ,[OfficialID]
+		      ,[Duty]
+		      ,[OfficialOrder]
+		) 
+		VALUES (
+		{MatchID},
+		{OfficialID3},
+		'{Duty3}',
+		3)
+		INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_MatchOfficial]( 
+		[MatchID]
+		      ,[OfficialID]
+		      ,[Duty]
+		      ,[OfficialOrder]
+		) 
+		VALUES (
+		{MatchID},
+		{OfficialID4},
+		'{Duty4}',
+		4)
+	end
+

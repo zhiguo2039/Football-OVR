@@ -1,0 +1,1 @@
+delete from [OVR_DatabaseFBL].[dbo].[Game_Event] where ID={ID}

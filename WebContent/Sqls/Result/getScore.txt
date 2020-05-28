@@ -1,0 +1,88 @@
+  Select COUNT(TechCode) as Ascore1 ,( Select COUNT(TechCode) From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=1) or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=1)))  as Bscore1,(Select COUNT(TechCode)   From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=2)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=2)))  as Ascore2,(Select COUNT(TechCode)  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=2)  or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=2))) as Bscore2,(Select COUNT(TechCode)   From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=3)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=3)))  as Ascore3,(Select COUNT(TechCode)  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=3)  or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=3))) as Bscore3,(Select COUNT(TechCode)   From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID} And MatchSectionOrder=5 And ParticipantID={ParticipantAID} AND TechCode='GF')  as Ascore5,(Select COUNT(TechCode)  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID} And MatchSectionOrder=5 And ParticipantID={ParticipantBID} AND TechCode='GF' ) as Bscore5,(Select COUNT(TechCode)   From [OVR_DatabaseFBL].[dbo].[Game_SingleTech]
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=4)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=4)))  as Ascore4,(Select COUNT(TechCode)    From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=4)  or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=4)) ) as Bscore4 From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=1)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=1))
+  
+  
+  
+ update [OVR_DatabaseFBL].[dbo].[Game_MatchSection]
+set ScoreA=(Select COUNT(TechCode) as Ascore1  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID} And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=1 )  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=1 ))),
+
+ScoreB=(Select COUNT(TechCode) as Bscore1  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID} And ((ParticipantID={ParticipantBID} AND TechCode='GF'  And MatchSectionOrder=1)  or (ParticipantID={ParticipantAID} AND TechCode='OG'  And MatchSectionOrder=1)))
+
+Where MatchID={MatchID} And SectionOrder=1
+
+
+ update [OVR_DatabaseFBL].[dbo].[Game_MatchSection]
+set ScoreA=(Select COUNT(TechCode) as Ascore2  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=2)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=2))),
+
+ScoreB=(Select COUNT(TechCode) as Bscore2  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=2)  or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=2)))
+
+Where MatchID={MatchID} And SectionOrder=2
+
+ update [OVR_DatabaseFBL].[dbo].[Game_MatchSection]
+set ScoreA=(Select COUNT(TechCode) as Ascore3  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=3)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=3))),
+
+ScoreB=(Select COUNT(TechCode) as Bscore3  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=3)  or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=3)))
+
+Where MatchID={MatchID} And SectionOrder=3
+
+
+ update [OVR_DatabaseFBL].[dbo].[Game_MatchSection]
+set ScoreA=(Select COUNT(TechCode) as Ascore4  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=4)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=4))),
+
+ScoreB=(Select COUNT(TechCode) as Bscore4  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=4)  or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=4)))
+
+Where MatchID={MatchID} And SectionOrder=4
+
+ update [OVR_DatabaseFBL].[dbo].[Game_MatchSection]
+set ScoreA=(Select COUNT(TechCode) as Ascore5  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=5),
+
+ScoreB=(Select COUNT(TechCode) as Bscore5  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=5)
+
+Where MatchID={MatchID} And SectionOrder=5
+
+update [OVR_DatabaseFBL].[dbo].[Game_Match]
+set ScoreA=((Select COUNT(TechCode) as Ascore1  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=1)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=1)))
+  +(Select COUNT(TechCode) as Ascore2  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=2)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=2)))
+  +(Select COUNT(TechCode) as Ascore3  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=3)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=3)))
+  +(Select COUNT(TechCode) as Ascore4  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantAID} AND TechCode='GF' And MatchSectionOrder=4)  or (ParticipantID={ParticipantBID} AND TechCode='OG' And MatchSectionOrder=4)))),
+
+ScoreB=((Select COUNT(TechCode) as Bscore4  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=4)  or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=4)))
+
++(Select COUNT(TechCode) as Bscore3  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=3)  or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=3)))
+
++(Select COUNT(TechCode) as Bscore2  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=2)  or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=2)))
+
++(Select COUNT(TechCode) as Bscore1  From [OVR_DatabaseFBL].[dbo].[Game_SingleTech] 
+  Where MatchID={MatchID}  And ((ParticipantID={ParticipantBID} AND TechCode='GF' And MatchSectionOrder=1)  or (ParticipantID={ParticipantAID} AND TechCode='OG' And MatchSectionOrder=1)))
+)
+Where ID={MatchID}
+
+
+
+ 

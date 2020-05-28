@@ -1,0 +1,1 @@
+update Game_MatchAthlete set Property='Substitute'  where ID in ({ID})

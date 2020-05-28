@@ -1,0 +1,4 @@
+
+UPDATE Game_MatchSection set StartTime=(Select CONVERT(varchar(100), GETDATE(), 108)) where
+MatchID={MatchID} and SectionOrder={SectionOrder}
+

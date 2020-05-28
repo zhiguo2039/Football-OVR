@@ -1,0 +1,13 @@
+﻿
+
+<select data-placeholder="Choose a GroupID..." class="chosen-select" tabindex="2" id="GroupID">
+
+
+    <%
+    for(var i =0;i<tplData.length;i++){ var aItem=tplData[i];
+                          %>
+
+        <option value="<%= aItem.ID%>"><%= aItem.GroupName%>--<%= aItem.GroupLocalName%></option>
+        <%}%>
+
+</select>

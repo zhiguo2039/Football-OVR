@@ -1,0 +1,7 @@
+SELECT EventName,
+PhaseOrder,
+PhaseCode
+,PhaseName
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Phase],[OVR_DatabaseFBL].[dbo].[Game_Event]
+  WHERE  [OVR_DatabaseFBL].[dbo].[Game_Phase].EventID=[OVR_DatabaseFBL].[dbo].[Game_Event].ID
+  AND [OVR_DatabaseFBL].[dbo].[Game_Phase].ID={ID}

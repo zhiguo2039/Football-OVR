@@ -1,0 +1,1 @@
+delete from [OVR_DatabaseFBL].[dbo].[Dict_Venue] where ID={ID}

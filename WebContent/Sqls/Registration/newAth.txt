@@ -1,0 +1,36 @@
+INSERT INTO [OVR_DatabaseFBL].[dbo].[Game_Athlete]( 
+	[AthleteCode]
+      ,[AthleteName]
+      ,[AthleteLocalName]
+      ,[DelegationID]
+      ,[ContryRegionCode]
+      ,[AthleteShortName]
+      ,[AthleteLocalShortName]
+      ,[AthleteFamilyName]
+      ,[AthleteGivenName]
+      ,[AthleteTVName]
+      ,[AthleteTVShortName]
+      ,[AthleteBirthDay]
+      ,[AthleteGender]
+      ,[AthleteWeight]
+      ,[AthleteHeight]
+	  ,[AthleteModifyTag]
+) 
+VALUES (
+'{AthleteCode}', 
+'{AthleteName}', 
+'{AthleteLocalName}',
+{DelegationID},
+'{ContryRegionCode}',
+'{AthleteShortName}',
+'{AthleteLocalShortName}',
+'{AthleteFamilyName}',
+'{AthleteGivenName}',
+'{AthleteTVName}',
+'{AthleteTVShortName}',
+'{AthleteBirthDay}',
+'{AthleteGender}',
+{AthleteWeight},
+{AthleteHeight},
+'N'
+)

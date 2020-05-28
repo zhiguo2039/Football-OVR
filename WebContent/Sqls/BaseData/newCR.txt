@@ -1,0 +1,17 @@
+INSERT INTO [OVR_DatabaseFBL].[dbo].[Dict_CountryRegion]( 
+	[CRCode]
+      ,[CRName]
+      ,[CRLocalName]
+      ,[CRFullName]
+      ,[CRLocalFullName]
+      ,[CRSYMBOL]
+      ,[CROrder]
+) 
+VALUES (
+'{CRCode}', 
+'{CRName}', 
+'{CRLocalName}',
+'{CRFullName}',
+'{CRLocalFullName}',
+' ',
+' ')

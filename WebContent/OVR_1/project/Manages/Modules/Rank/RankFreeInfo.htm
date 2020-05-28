@@ -1,0 +1,34 @@
+<table id="addranktable" class="table table-striped table-bordered table-hover dataTables-example ">
+    <thead>
+	<tr>
+		<th>选择<input id="allselectcheckbox" class="pull-left" name="allselectcheckbox" type="checkbox" value="" onchange="Rank.allselect();"/></th>
+		<th>报项号</th>
+        <th>参赛者简称</th>
+		<th>参赛者名</th>
+		<th>参赛者中文名</th>
+																
+	</tr>
+    </thead>
+    <tbody>
+    <%
+                                                               
+    for( var j=0;j<rankfreeInfo.length;j++) 
+        { var aItem1=rankfreeInfo[j];
+    %>
+	<tr>
+		<td>
+			<input id="checkbox" class="pull-left" name="rankcheckbox" type="checkbox" value="<%=j%>" />
+		</td>
+        <td><%=aItem1.ID %></td>
+		<td><%=aItem1.ParticipantCode %></td>
+		<td><%=aItem1.ParticipantName %></td>
+		<td><%=aItem1.ParticipantLocalName %></td>
+																
+	</tr>
+	<%
+															
+	}
+	%>
+	</tbody>
+
+</table>

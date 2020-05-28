@@ -1,0 +1,4 @@
+Delete from [OVR_DatabaseFBL].[dbo].[Game_MatchSection] where MatchID={ID}
+delete from [dbo].[Game_MatchOfficial] where MatchID={ID}
+delete from [dbo].[Game_MatchAthlete] where MatchID={ID}
+Delete from [OVR_DatabaseFBL].[dbo].[Game_Match] where ID={ID}

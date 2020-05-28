@@ -1,0 +1,5 @@
+SELECT *
+  FROM [OVR_DatabaseFBL].[dbo].[Game_Official],[OVR_DatabaseFBL].[dbo].[Dict_CountryRegion]
+  WHERE 
+ [OVR_DatabaseFBL].[dbo].[Game_Official].ContryRegionCode=[OVR_DatabaseFBL].[dbo].[Dict_CountryRegion].CRCode
+  AND [OVR_DatabaseFBL].[dbo].[Game_Official].[OfficialModifyTag]<>'D'

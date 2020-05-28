@@ -1,0 +1,10 @@
+update Game_News set
+			 NewsTime='{newstime}',
+			 NewsTitle='{newstitle}',
+			 NewsSummary='{newssummary}',
+			 NewsSubTitle='{newssubtitle}',
+			 NewsPublisher='{newsPublisher}',
+			Status='{newsstatus}',
+			NewsDetails='{newsinfo}',
+			EventGender='{newsEvent}'
+where id={newsid}

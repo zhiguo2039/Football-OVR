@@ -1,0 +1,21 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Athlete]
+  
+  set 
+  
+  AthleteLocalName='{AthleteLocalName}'
+  ,AthleteLocalShortName='{AthleteLocalShortName}'
+  ,AthleteName='{AthleteName}'
+  ,AthleteShortName='{AthleteShortName}'
+  ,AthleteCode='{AthleteCode}'
+  ,AthleteFamilyName='{AthleteFamilyName}'
+  ,AthleteGender='{AthleteGender}'
+  ,AthleteGivenName='{AthleteGivenName}'
+  ,AthleteTVName='{AthleteTVName}'
+  ,AthleteTVShortName='{AthleteTVShortName}'
+  ,AthleteWeight='{AthleteWeight}'
+  ,AthleteHeight='{AthleteHeight}'
+  ,AthleteBirthDay='{AthleteBirthDay}'
+  ,DelegationID='{DelegationID}'
+  ,ContryRegionCode='{ContryRegionCode}'
+  ,[AthleteModifyTag]='U'
+  where ID={ID}

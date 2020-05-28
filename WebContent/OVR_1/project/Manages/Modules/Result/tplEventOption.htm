@@ -1,0 +1,12 @@
+
+<select data-placeholder="Choose a Event..." class="col-lg-2" tabindex="2" id="EventID" onchange="Result.LoadPhaseOption();">
+
+
+    <%
+    for(var i =0;i<tplData.length;i++){ var aItem=tplData[i];
+                          %>
+
+        <option value="<%= aItem.ID%>"><%= aItem.EventName%>--<%= aItem.EventLocalName%></option>
+        <%}%>
+
+</select>

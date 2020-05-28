@@ -1,0 +1,13 @@
+﻿
+
+<select data-placeholder="Choose a Delegation..." class="chosen-select" tabindex="2" id="DelegationID" onchange="Sign.LoadResAth();">
+
+
+    <%
+    for(var i =0;i<tplData.length;i++){ var aItem=tplData[i];
+                          %>
+
+        <option value="<%= aItem.ID%>"><%= aItem.DelegationName%>--<%= aItem.DelegationLocalName%></option>
+        <%}%>
+
+</select>

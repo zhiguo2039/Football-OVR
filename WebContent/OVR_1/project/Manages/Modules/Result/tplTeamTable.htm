@@ -1,0 +1,122 @@
+﻿
+
+
+           
+                <div class="table-responsive">
+                    <table id="table" style="width:1580px"class="footable table table-stripped toggle-arrow-tiny dataTables-example " >
+                        <thead>
+                            <tr>
+                                <th>操作</th>								
+                                <th>参赛队伍名称</th>
+                                <th>小组排名</th>
+                                <th>小组积分</th>
+                                <th>比赛场数</th>
+                                <th>胜场数</th>
+                                <th>平场数</th>
+                                <th>负场数</th>
+                                <th>进球数</th>
+                                <th>失球数</th>
+                                <th>净胜球数</th>                              
+                                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <%
+                                for(var i=0;i<tplData.length;i++)
+                                { var aItem=tplData[i];
+                                %>
+                                <tr>
+                               		<td class="center">
+										<a onclick="Result.showTeamTableDlg(<%=i%>);">修改</a>
+									</td>																									
+									<td><%=aItem.ParticipantName%></td>								
+                                    <td><%=aItem.Rank%></td>
+                                    <td><%=aItem.GroupPoints%></td>
+                                    <td><%=aItem.MatchsPlayed%></td>
+									<td><%=aItem.WonNumber%></td>
+                                    <td><%=aItem.DrawnNumber%></td>
+                                    <td><%=aItem.LostNumber%></td>
+                                    <td><%=aItem.GoalFor%></td>
+                                    <td><%=aItem.GoalAgainst%></td>
+                                    <td><%=aItem.GoalDifference%></td>                                  									
+									
+								</tr>		
+								<%
+								}%>					
+
+                        </tbody>
+                        
+                               
+                    </table>
+
+                </div>
+
+<!-- 修改小组成绩信息模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    修改小组成绩信息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form method="get" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">参赛者名称:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="ParticipantName" readonly="readonly"></div>
+                        <label class="col-sm-3 control-label">小组排名:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="GroupRank"></div>
+                    </div> 
+                    <div class="hr-line-dashed"></div>                 
+                    <div class="form-group">
+                        
+                        <label class="col-sm-3 control-label">小组积分:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="GroupPoints"></div>
+                        <label class="col-sm-3 control-label">比赛场数:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="MatchsPlayed"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        
+                        <label class="col-sm-3 control-label">胜场数:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="WonNumber"></div>
+                        <label class="col-sm-3 control-label">平场数:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="DrawnNumber"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        
+                        <label class="col-sm-3 control-label">负场数:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="LostNumber"></div>
+                        <label class="col-sm-3 control-label">进球数:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="GoalFor"></div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        
+                        <label class="col-sm-3 control-label">失球数:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="GoalAgainst"></div>
+                        <label class="col-sm-3 control-label">净胜球数:</label>
+                        <div class="col-sm-3"><input type="text" class="form-control" id="GoalDifference"></div>     
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-primary" onclick="Result.doTeamTablePost();">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+            

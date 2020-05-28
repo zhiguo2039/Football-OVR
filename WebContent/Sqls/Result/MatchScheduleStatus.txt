@@ -1,0 +1,4 @@
+update Game_Match set MatchScheduleStatus='SCHEDULED' where ID in ({ID})
+
+update Game_Match set MatchResultStatus='START_LIST' where ID in ({ID})
+

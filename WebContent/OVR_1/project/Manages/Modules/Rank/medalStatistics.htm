@@ -1,0 +1,85 @@
+	<div class="col-lg-12 ">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+        <h5>奖牌统计</h5>
+            <!--<div class="ibox-tools">
+              <li>
+                  <button class="btn btn-sm " onclick="CommonData.GetC95();"><i class="fa fa-files-o"></i>奖牌榜</button>
+              </li>
+               <button type="button" class="btn btn-outline btn-default " onclick="Rank.LoadRankInf();">
+                    <i class="fa fa-plus  "></i><a herf="#"><font color="black"> 返回</font></a>
+                </button>
+                <button type="button" class="btn btn-outline btn-default">
+                    <i class="fa fa-plus"></i><a onclick=""><font color="black"> 新增</font></a>
+                </button>
+            </div>-->
+        </div>
+        <div class="ibox-content">
+            <div class="table-responsive">
+                				
+				<table  id="medalstatistics-table" class="table table-striped table-bordered table-hover dataTables-example ">
+				
+				   		<thead>
+							<tr>
+								<th>金牌排名</th>
+								<th>总奖牌排名</th>
+								<th>代表团</th>
+								<th>统计日期</th>
+								<th>第几日</th>
+								<th>男金</th>
+								<th>男银</th>
+								<th>男铜</th>
+								<th>男总</th>
+								<th>女金</th>
+								<th>女银</th>
+								<th>女铜</th>
+								<th>女总</th>								
+								<th>总金</th>
+								<th>总银</th>
+								<th>总铜数</th>
+								<th>总计</th>
+								<th>得分</th>
+								<th>分数排名</th>
+							</tr>
+						 </thead>
+				         <tbody>
+				         <%
+				             
+				         for( var j=0;j<medalstatisticsinfo.length;j++) { var aItem1=medalstatisticsinfo[j];
+                                 %>
+                            <tr>
+                                <td><%=aItem1.GoldRank %> </td>
+                                <td><%=aItem1.TotalRank %> </td>
+                                <td><%=aItem1.DelegationName %> </td>
+                                <td><%=aItem1.StatDate %> </td>
+                                <td><%=aItem1.ScheduleDay %> </td>
+                                <td><%=aItem1.MenGold %> </td>
+                                <td><%=aItem1.MenSilver %> </td>
+                                <td><%=aItem1.MenBronze %> </td>
+                                <td><%=aItem1.MenTotal %> </td>
+                                <td><%=aItem1.WomenGold %> </td>
+                                <td><%=aItem1.WomenSilver %> </td>
+                                <td><%=aItem1.WomenBronze %> </td>
+                                <td><%=aItem1.WomenTotal %> </td>
+                                <td><%=aItem1.TotalGold %> </td>
+                                <td><%=aItem1.TotalSilver %> </td>
+                                <td><%=aItem1.TotalBronze %> </td>
+                                <td><%=aItem1.TotalTotal %> </td>
+                                <td><%=aItem1.Score %> </td>
+                                <td><%=aItem1.ScoreRank %> </td>
+                            </tr>
+                            <%
+                            }
+                            %>
+                        </tbody>
+				
+				</table>
+				
+            </div>
+        </div>
+        
+    <!--</div>-->
+
+</div>
+	
+	

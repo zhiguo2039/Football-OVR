@@ -1,0 +1,1 @@
+update Game_ParticipantMember set MemberPosition='FW' where ID in ({ID})

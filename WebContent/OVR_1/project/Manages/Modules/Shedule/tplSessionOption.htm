@@ -1,0 +1,13 @@
+﻿
+
+<select data-placeholder="Choose a Session..." class="chosen-select" tabindex="2" id="SessionID" >
+
+
+    <%
+    for(var i =0;i<tplData.length;i++){ var aItem=tplData[i];
+                          %>
+
+        <option value="<%= aItem.ID%>"><%= aItem.SessionName%>--<%= aItem.SessionStartTime%></option>
+        <%}%>
+
+</select>

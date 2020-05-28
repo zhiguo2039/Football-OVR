@@ -1,0 +1,315 @@
+ 
+
+
+    
+
+
+     
+            <div class="ibox-content" id="ResultEdit" style="display:none">
+                   <div class="row">								
+								<label class="col-sm-1 control-label">比赛项目</label>
+								<div class="col-sm-2" style="position:relative;right:50px;bottom:6px">					
+									<input type="text" class="form-control" id="EntryScore_MatchLocalName" name="" value="" readonly="readonly">
+                                    <input type="text" class="form-control" id="EntryScore_MatchID" name="" value="" style="display:none;" readonly="readonly">
+								</div>	
+								<label class="col-sm-1 control-label">比赛阶段</label>
+								<div class="col-sm-2" style="position:relative;right:50px;bottom:6px">						
+									<input type="text" class="form-control" id="EntryScore_PhaseLocalName" name="" value="" readonly="readonly">
+								</div>	
+								<label class="col-sm-1 control-label">比赛编号</label>		
+								<div class="col-sm-3" style="position:relative;right:50px;bottom:6px">					
+									<input type="text" class="form-control" id="EntryScore_MatchCode" name="" value="" readonly="readonly">
+								</div>												
+                            </div>
+					<div class="row" style="padding-top:10px">								
+						<label class="col-sm-2 control-label">对阵</label>
+						<label class="col-sm-1 control-label">比分</label>
+						<label class="col-sm-1 control-label">上半场</label>
+						<label class="col-sm-1 control-label">下半场</label>
+						<label class="col-sm-1 control-label">加时赛上半场</label>
+                        <label class="col-sm-1 control-label">加时赛下半场</label>
+						<label class="col-sm-1 control-label">点球</label>
+                        <label class="col-sm-1 control-label">获胜方式</label>
+                        <select class="col-sm-2 " name="WinType" id="WinType">
+                            <option value="0">未分胜负</option>
+                            <option value="1">得分获胜</option>
+                            <option value="2">A被取消资格</option>
+                            <option value="3">B被取消资格</option>
+                            <option value="4">A弃权</option>
+                            <option value="5">B弃权</option>
+                            <option value="6">A未出场</option>
+                            <option value="7">B未出场</option>
+                            <option value="8">平局</option>
+                        </select>
+
+                    </div>
+					<div class="row" style="padding-top:10px">								
+						
+						<div class="col-sm-2">							
+							<input type="text" class="form-control" id="EntryScore_ParticipantLocalNameA" name="" value="" readonly="readonly">
+                            <input type="text" class="form-control" id="EntryScore_ParticipantAID" name="" value="" readonly="readonly" style="display:none">
+						</div>
+						<div class="col-sm-1">							
+							<input type="text" class="form-control" id="ScoreA" name="" value="">
+						</div>
+						<div class="col-sm-1">							
+							<input type="text" class="form-control" id="SectionScoreA1" name="" value="">
+						</div>
+						<div class="col-sm-1">							
+							<input type="text" class="form-control" id="SectionScoreA2" name="" value="">
+						</div>
+						<div class="col-sm-1">							
+							<input type="text" class="form-control" id="SectionScoreA3" name="" value="">
+						</div>
+						<div class="col-sm-1">							
+							<input type="text" class="form-control"id="SectionScoreA4" name="" value="">
+						</div>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control" id="SectionScoreA5" name="" value="">
+                        </div>
+                        <!--<label class="col-sm-1 control-label" >主队控球时间</label>	
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control" id="ControlTimeA" name="ControlTimeA" value="">
+                        </div>-->						
+                    </div>
+					<div class="row" style="padding-top:10px">								
+								
+						<div class="col-sm-2">							
+							<input type="text" class="form-control" id="EntryScore_ParticipantLocalNameB" name="" value="" readonly="readonly">
+                            <input type="text" class="form-control" id="EntryScore_ParticipantBID" name="" value="" readonly="readonly" style="display:none">
+						</div>
+						<div class="col-sm-1">							
+							<input type="text" class="form-control" id="ScoreB" name="" value="">
+						</div>
+						<div class="col-sm-1">							
+							<input type="text" class="form-control" id="SectionScoreB1" name="" value="">
+						</div>
+						<div class="col-sm-1">							
+							<input type="text" class="form-control"id="SectionScoreB2" name="" value="">
+						</div>
+						<div class="col-sm-1">							
+							<input type="text" class="form-control"id="SectionScoreB3" name="" value="">
+						</div>
+						<div class="col-sm-1">							
+							<input type="text" class="form-control"id="SectionScoreB4" name="" value="">
+						</div>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control" id="SectionScoreB5" name="" value="">
+                        </div>
+                       
+                    </div>
+                        
+                        <div class="row" style="padding-top:10px">
+
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="EntryScore_Time" name="" value="比赛状态"  readonly="readonly" >
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="datetime" class="form-control" id="" name="" style="display:none;" value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="btn-sm btn-default" id="StartTime1" name="" onclick="Result.StartNext(1);" style="display:none"">上半场开始</button>
+                                <button class="btn-sm btn-default" id="EndTime1" name="" onclick="Result.EndNext(1);" style="display:none">上半场结束</button>
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="btn-sm btn-default" id="StartTime2" name="" onclick="Result.StartNext(2);" style="display:none">下半场开始</button>
+                                <button class="btn-sm btn-default" id="EndTime2" name="" onclick="Result.EndNext(2);" style="display:none">下半场结束</button>
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="btn-sm btn-default" id="StartTime3" name="" onclick="Result.StartNext(3);" style="display:none">加时赛上半场开始</button>
+                                <button class="btn-sm btn-default" id="EndTime3" name="" onclick="Result.EndNext(3);" style="display:none">加时赛上半场结束</button>
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="btn-sm btn-default" id="StartTime4" name="" onclick="Result.StartNext(4);" style="display:none">加时赛下半场开始</button>
+                                <button class="btn-sm btn-default" id="EndTime4" name="" onclick="Result.EndNext(4);" style="display:none">加时赛下半场结束</button>
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="btn-sm btn-default" id="StartTime5" name="" onclick="Result.StartNext(5);" style="display:none">点球赛开始</button>
+                                <button class="btn-sm btn-default" id="EndTime5" name="" onclick="Result.EndNext(5);" style="display:none">点球赛结束</button>
+                            </div>
+
+                        </div>
+                           
+
+
+                            <div class="row" style="padding-top:10px">
+
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="EntryScore_ControlTime" name="" value="伤停补时" readonly="readonly">
+                                </div>
+
+                                <div class="col-sm-1">
+                                    <input type="text" class="form-control" id="InjuryTime" name="InjuryTime" value="">
+                                </div>
+                                <div class="col-sm-1">
+                                    <button class="btn-sm btn-primary" id="InjuryTime" name="" onclick="Result.postInjuryT();">提交补时时间</button>
+                                </div>
+
+
+                                <button type="button" class="btn btn-outline btn-default " onclick="Result.showControlT();"><i class="fa fa-edit"></i><font color="black"> 修改控球时间</font></button>
+
+                                <button type="button" class="btn btn-outline btn-default " data-toggle="modal" data-target="#myModal2"><i class="fa fa-plus"></i><font color="black"> 新增暂停时间</font></button>
+                                
+
+
+
+                            </div>
+                            <!--<div class="row" style="padding-top:10px">
+
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="EntryScore_InjuryTime1" name="" value="伤停补时" readonly="readonly">
+                                </div>
+
+                                <label class="col-sm-1 control-label">主队</label>
+                                <div class="col-sm-1">
+                                    <input type="text" class="form-control" id="ControlTimeB" name="ControlTimeA" value="">
+                                </div>
+                                <label class="col-sm-1 control-label">客队</label>
+                                <div class="col-sm-1">
+                                    <input type="text" class="form-control" id="ControlTimeB" name="ControlTimeB" value="">
+                                </div>
+                                <div class="col-sm-1">
+                                    <button class="btn-sm btn-primary" id="ControlTime" name="" onclick="Result.postControlT();">提交控球时间</button>
+                                </div>
+
+                            </div>-->
+
+                         <div class="row" style="padding-top:12px">
+                             <div class="col-sm-4 col-sm-offset-10">
+                                 <button class="btn btn-primary" type="submit" onclick="Result.HideEntyScore();">退出</button>
+                                 <button class="btn btn-primary" type="submit" onclick="Result.AddScoreInfo();">确定</button>
+                             </div>
+                         </div>
+                        <br>
+                         <div class="ibox-content" id="TechStatistic" >
+
+                             <label class="col-sm-2 control-label"><h4>运动员技术统计信息</h4></label>
+
+
+                             <div class="col-sm-2" id="" style="position:relative;right:0px;bottom:6px">
+                                 <select class="input-sm form-control input-s-sm inline" id="GDF" onchange="">
+                                     <option value="DT_PLAY_BY_PLAY">DT_PLAY_BY_PLAY</option>
+                                     <option value="DT_BRACKETS">DT_BRACKETS</option>
+                                     <option value="DT_POOL_STANDING">DT_POOL_STANDING</option>
+                                     <option value="DT_RESULT">DT_RESULT</option>
+                                     <option value="DT_STATS">DT_STATS</option>
+                                 </select>
+
+                             </div>
+                             <div class="col-sm-2" id="" style="position:relative;right:0px;bottom:6px">
+                                 <button class="btn btn-sm " onclick="ODF.GetGDF();"><i class="fa fa-files-o"></i>上传XML</button>
+                             </div>
+
+
+                             <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC73();"><i class="fa fa-files-o"></i>C73报表</button>                       
+                             <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC84A();"><i class="fa fa-files-o"></i>C84A报表</button> 
+                             <!--<button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC85A();"><i class="fa fa-files-o"></i>个人技术统计</button> 
+                             <button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC84B();"><i class="fa fa-files-o"></i>队伍技术统计</button>--> 
+                             <!--<button class="btn btn-outline btn-default col-sm-offset-0" onclick="CommonData.PrintC89();"><i class="fa fa-files-o"></i>犯规统计</button>--> 
+                             
+                             <button class="btn btn-outline btn-primary col-sm-offset-1" onclick="CommonData.ShowPDFVersion('C73');"><i class="fa fa-files-o"></i>修订C73报表</button>
+                             <button class="btn btn-outline btn-primary col-sm-offset-0" onclick="CommonData.ShowPDFVersion('C84A');"><i class="fa fa-files-o"></i>修订C84A报表</button> 
+                                
+
+                             <div class="ibox-content" style="height:300px">
+                                 <div>
+                                     <label class="col-lg-1 control-label">报项国家</label>
+                                     <div id="AthleteParticipantSelect" style="position:relative;">
+
+                                     </div>
+                                 </div>
+                                 <br>
+                                 <br>
+                                 <div>
+                                     <label class="col-lg-1 control-label">参赛运动员</label>
+                                     <label class="col-lg-1 control-label" style="position:absolute;left:695px;">统计项目</label>
+                                     <button class="btn btn-sm btn-primary " onclick="Result.doTechPost();" style="position:absolute;left:1200px;">提交</button>
+                                     <br>    
+                                     <br>                                 
+                                     <div id="ParticipantMemberSelect" class="col-lg-5">
+
+                                     </div>
+
+                                     <div id="TechSelect" class="col-lg-5">
+
+                                     </div>
+                                 </div>
+                                
+
+                             </div>
+                             <div id="tab-4" class="ibox-content">
+
+                             </div>
+
+
+
+                         </div>
+						
+
+                        
+                  </div>
+
+
+                    <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header"> 
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>                                  
+                                    <h8 class="modal-title pull-left" id="myModalLabel">
+                                        添加暂停时间
+                                    </h8>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="get" class="form-horizontal">
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">开始时间:</label>
+                                            <div class="col-sm-3"><input type="datetime" class="form-control" id="StartSuspendT" name="" value=""></div>
+                                            <label class="col-sm-3 control-label">结束时间:</label>
+                                            <div class="col-sm-3"><input type="datetime" class="form-control" id="StopSuspendT" name="" value=""></div>
+                                        </div>            
+                                    </form>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+               
+                                    <button type="button" class="btn btn-primary" onclick="Result.postSuspendT();">保存更改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="modal inmodal" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h8 class="modal-title pull-left" id="myModalLabel">
+                                修改控球时间
+                            </h8>
+                        </div>
+                        <div class="modal-body">
+                            <form method="get" class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">主队控球时间:</label>
+                                    <div class="col-sm-3"><input type="text" class="form-control" id="ControlTimeA" name="ControlTimeA" value=""></div>
+                                    <label class="col-sm-3 control-label">客队控球时间:</label>
+                                    <div class="col-sm-3"><input type="text" class="form-control" id="ControlTimeB" name="ControlTimeB" value=""></div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white" data-dismiss="modal" onclick="Result.closeControlT()";>关闭</button>
+
+                            <button type="button" class="btn btn-primary" onclick="Result.postControlT();">保存更改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                   

@@ -1,0 +1,1 @@
+select m.ID,MatchName,MatchLocalName,TotalOrder from Game_Match m,Game_Phase p where m.PhaseID=p.ID and p.EventID={EventID} order by PhaseID,MatchCode

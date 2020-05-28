@@ -1,0 +1,4 @@
+select td.*,Game_Delegation.DelegationName,Game_Delegation.DelegationLocalName from
+(select Game_Rank.*,Game_Event.EventName,Game_Event.EventLocalName from Game_Rank 
+left join Game_Event on  Game_Rank.EventID=Game_Event.ID  where Game_Rank.EventID={ID}
+)td left join Game_Delegation on td.DelegationID=Game_Delegation.ID order by Rank

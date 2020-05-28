@@ -1,0 +1,16 @@
+
+declare @i int
+declare @s int
+set @i=0
+set @s={sNum}
+while @i<={count}
+begin
+
+     UPDATE [OVR_DatabaseFBL].[dbo].[Game_Match]
+	 set 
+    BeginTime='{BeginTime}',EndTime='{EndTime}'
+	 WHERE PhaseID ={PhaseID} AND MatchOrder=@s+@i
+set @i=@i+1
+
+continue
+end

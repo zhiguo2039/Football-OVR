@@ -1,0 +1,6 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Match]
+  set 
+  ParticipantAID=null
+  ,ParticipantBID=null
+
+  where ID={ID}

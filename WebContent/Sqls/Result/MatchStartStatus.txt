@@ -1,0 +1,4 @@
+update Game_Match set MatchScheduleStatus='RUNNING',MatchModifyTag='U' where ID in ({ID})
+
+update Game_Match set MatchResultStatus='LIVE' where ID in ({ID})
+

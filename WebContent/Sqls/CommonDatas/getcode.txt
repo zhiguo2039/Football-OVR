@@ -1,0 +1,1 @@
+  select T=EventCode+EventDescription from Game_event  where ID={eventid}

@@ -1,0 +1,12 @@
+insert into Game_MatchSuspend(
+[MatchID],
+[SectionOrder],
+[StartTime],
+[EndTime]
+)
+values(
+{MatchID},
+{SectionOrder},
+'{StartTime}',
+'{EndTime}'
+)

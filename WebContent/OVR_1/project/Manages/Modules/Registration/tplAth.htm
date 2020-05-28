@@ -1,0 +1,220 @@
+﻿<style>
+    .form-group {
+        margin-bottom: 20px;
+    }
+</style>
+<div class="col-lg-12">
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>运动员信息</h5>
+            <div class="ibox-tools">
+                <button class="btn btn-outline btn-default col-sm-offset-1" onclick="CommonData.ImportXml();"><i class="fa fa-files-o"></i>导入运动员</button>
+                <button type="button" class="btn btn-outline btn-default" onclick="Sign.NewAth()">
+                    <i class="fa fa-edit"></i><font color="black"> 新增数据</font>
+                </button>
+            </div>
+        </div>
+       
+        <div class="ibox-content">
+            <div class="table-responsive">
+                <table id="table" style="width:2200px" class="table table-striped table-bordered table-hover dataTables-example">
+                    <thead>
+                        <tr>
+                            <th>操作</th>
+                            <th>单项注册码</th>
+                            <th>姓名</th>
+                            <th>中文名</th>
+                            <th>姓</th>
+                            <th>名</th>
+                            <th>TV名</th>
+                            <th>TV简称</th>
+                            <th>报表名</th>
+                            <th>报表简称</th>
+                            <th>性别</th>
+                            <th style="width:200px">出生日期</th>
+                            <th>代表团</th>
+                            <th>体重</th>
+                            <th>身高</th>
+                            <th>国家地区</th>
+                            <th>国家地区中文</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                        for(var i=0;i<tplData.length;i++){
+                            var aItem =tplData[i];
+                        %>
+                        <tr class="gradeA">
+                            <td class="center"><a onclick="Sign.showAthEditDlg(<%= i%>)">修改</a>|<a onclick="Sign.delAth(<%= i%>);">删除</a></td>
+                            <td><%= aItem.AthleteCode%></td>
+                            <td><%= aItem.AthleteName%></td>
+                            <td><%= aItem.AthleteLocalName%></td>
+                            <td><%= aItem.AthleteFamilyName%></td>
+                            <td><%= aItem.AthleteGivenName%></td>
+                            <td><%= aItem.AthleteTVName%></td>
+                            <td><%= aItem.AthleteTVShortName%></td>
+                            <td><%= aItem.AthleteTVName%></td>
+                            <td><%= aItem.AthleteTVShortName%></td>
+                            <%
+                            if(aItem.AthleteGender=='M'){
+                            %>    
+                                <td>男</td>
+                            <%}else{%>
+                                <td>女</td>
+                            <%}%>
+                            <td><%= aItem.AthleteBirthDay%></td>
+                            <td><%= aItem.DelegationName%></td>
+                            <td><%= aItem.AthleteWeight%></td>
+                            <td><%= aItem.AthleteHeight%></td>
+                            <td><%= aItem.CRName%></td>
+                            <td><%= aItem.CRLocalName%></td>
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- 添加运动员信息模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    添加运动员信息
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form method="get" class="form-horizontal" id="VAth">
+                    <div class="form-group">
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label">编号:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id=""></div>
+                        </div>
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label">源号:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id=""></div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label">*代表团:</label>
+                            <div class="col-sm-4" id="DeleSelect">
+
+                            </div>
+                        </div>
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label">*国家地区:</label>
+                            <div class="col-sm-4" id="CRSelect">
+
+                            </div>
+                        </div>
+                     </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteLocalName">中文姓名:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteLocalName" name="AthleteLocalName"></div>
+                        </div>
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteLocalShortName">中文简称:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteLocalShortName" name="AthleteLocalShortName"></div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteName">*英文姓名:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteName" name="AthleteName"></div>
+                        </div>
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteShortName">*英文简称:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteShortName" name="AthleteShortName"></div>
+                        </div>
+                     </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label">*性别:</label>
+                            <div class="col-sm-4" id="">
+                                <select class="form-control m-b" tabindex="2" id="AthleteGender">
+                                    <option value="M">男</option>
+                                    <option value="W">女</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteCode">*注册号:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteCode" name="AthleteCode"></div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteFamilyName">*姓:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteFamilyName" name="AthleteFamilyName"></div>
+                        </div>
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteGivenName">*名:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteGivenName" name="AthleteGivenName"></div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteTVName">*TV名:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteTVName" name="AthleteTVName"></div>
+                        </div>
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteTVShortName">*TV简称:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteTVShortName" name="AthleteTVShortName"></div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    
+
+                    <div class="form-group">
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteWeight">*身高:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteWeight" name="AthleteWeight"></div>
+                        </div>
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteHeight">*体重:</label>
+                            <div class="col-sm-4"><input type="text" class="form-control" id="AthleteHeight" name="AthleteHeight"></div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="rowGroup">
+                            <label class="col-sm-2 control-label" for="AthleteBirthDay">*出生年月:</label>
+                            <div class="col-sm-6">
+                                <div class="input-group date" id="EndDate">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    <input type="text" class="form-control" value="" name="AthleteBirthDay" id="AthleteBirthDay">
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                </form>
+                <div class="col-sm-3 pull-right">*为必填项!</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-primary" onclick="Sign.doAthPost();">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

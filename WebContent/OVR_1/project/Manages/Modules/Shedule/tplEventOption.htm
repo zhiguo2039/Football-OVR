@@ -1,0 +1,14 @@
+﻿
+
+<select data-placeholder="Choose a Event..." class="chosen-select" tabindex="2" id="EventID" onchange="Shedule.LoadPhaseSelect();">
+
+
+    <%
+    for(var i =0;i
+    <tplData.length;i++){ var aItem=tplData[i];
+                          %>
+
+        <option value="<%= aItem.ID%>"><%= aItem.EventName%></option>
+        <%}%>
+
+</select>

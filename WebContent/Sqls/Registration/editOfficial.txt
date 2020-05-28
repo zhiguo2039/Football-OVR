@@ -1,0 +1,22 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_Official]
+  
+  set 
+  
+  OfficialLocalName='{OfficialLocalName}'
+  ,OfficialLocalShortName='{OfficialLocalShortName}'
+  ,OfficialName='{OfficialName}'
+  ,OfficialShortName='{OfficialShortName}'
+  ,OfficialCode='{OfficialCode}'
+  ,OfficialFamilyName='{OfficialFamilyName}'
+  ,OfficialGender='{OfficialGender}'
+  ,OfficialGivenName='{OfficialGivenName}'
+  ,OfficialTVName='{OfficialTVName}'
+  ,OfficialTVShortName='{OfficialTVShortName}'
+  ,OfficialWeight='{OfficialWeight}'
+  ,OfficialHeight='{OfficialHeight}'
+  ,OfficialBirthDay='{OfficialBirthDay}'
+  ,OfficialIFCode='{OfficialIFCode}'
+  ,OfficialFunction='{OfficialFunction}'
+  ,ContryRegionCode='{ContryRegionCode}'
+  ,[OfficialModifyTag]='U'
+  where ID={ID}

@@ -1,0 +1,6 @@
+ update [OVR_DatabaseFBL].[dbo].[Game_GroupParticipant]
+  set 
+  ParticipantID='{ParticipantID}'
+  
+
+  where ID={ID}

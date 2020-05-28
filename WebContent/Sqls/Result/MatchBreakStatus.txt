@@ -1,0 +1,4 @@
+update Game_Match set MatchResultStatus='INTERMEDIATE',MatchModifyTag='U' where ID in ({ID})
+
+
+
